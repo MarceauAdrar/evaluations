@@ -55,4 +55,4 @@
 
     <div class="text-center">
         <img src="./imgs/adrar_logo.svg" alt="Logo de l'ADRAR" id="logo_adrar" />
-    </div> 
+    </div>  

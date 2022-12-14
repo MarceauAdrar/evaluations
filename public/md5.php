@@ -1,2 +1,2 @@
 <?php 
-die(md5($_GET["pass"]));
+die(md5($_GET["pass"])); 
