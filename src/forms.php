@@ -22,4 +22,4 @@ if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
     header("Location: " . $PUBLIC_DIR . "connexion.php", );
 }
 
-?>
+?> 
