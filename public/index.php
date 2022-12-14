@@ -16,4 +16,4 @@ include_once($PUBLIC_DIR . "header.php");
 <?php 
 include_once($PUBLIC_DIR . "footer.php"); 
 die(ob_get_clean());
-?> 
+?>
