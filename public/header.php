@@ -30,9 +30,17 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_modules" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Modules
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_modules">
-                                <li><a class="dropdown-item" href="modules/html_css/">HTML/CSS</a></li>
-                            </ul>
+                            <?php 
+                            $sql_evaluations = "SELECT evaluation_name, evaluation_link 
+                                                FROM evaluations 
+                                                WHERE evaluation_active = 1;";
+                            $req_evaluations = $db->prepare($sql_evaluations);
+                            $req_evaluations->execute();
+                            foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
+                                <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_modules">
+                                    <li><a class="dropdown-item" href="modules/<?=$eval["evaluation_link"]?>/"><?=$eval["evaluation_name"]?></a></li>
+                                </ul>   
+                            <?php } ?>
                         </li>
                     </ul>
                     <span class="navbar-text">
