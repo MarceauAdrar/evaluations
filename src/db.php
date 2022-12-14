@@ -1,6 +1,8 @@
 <?php 
-    $USER = "root";
-    $PASS = "Q45tx1020disney05!";
+session_start();
+
+$USER = "root";
+$PASS = "Q45tx1020disney05!";
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=adrar", $USER, $PASS);

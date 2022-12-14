@@ -1,14 +1,14 @@
 <?php
-include_once("../src/consts.php");
+include_once("../src/db.php");
 
 if (!empty($_SESSION["intern"]["intern_id"]) && isset($_SESSION["intern"]["intern_id"])) {
-    header("Location: " . $PUBLIC_DIR . "index.php");
+    header("Location: ./index.php");
 }
 
 $title = " | Connexion";
 
 ob_start();
-include_once($PUBLIC_DIR . "header.php");
+include_once("./header.php");
 // Le contenu de ma page HTML vient se glisser entre les balises PHP fermantes et ouvrantes
 ?>
 
@@ -19,7 +19,7 @@ include_once($PUBLIC_DIR . "header.php");
                 <!-- Illustration de la connexion -->
                 <img src="./imgs/login.svg" alt="Illustration de la connexion" id="form_logo_login">
                 
-                <form action="../src/forms.php" method="POST">
+                <form action="../src/requests.php" method="POST">
                     <!-- Champs caché permettant en back de pouvoir traiter uniquement ce formulaire -->
                     <input type="hidden" name="intern_connexion" id="intern_connexion" value="1">
 
@@ -49,5 +49,5 @@ include_once($PUBLIC_DIR . "header.php");
 </div>
 
 <?php
-include_once($PUBLIC_DIR . "footer.php");
+include_once("./footer.php");
 die(ob_get_clean()); 
