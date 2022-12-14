@@ -1,4 +1,64 @@
+:root {
+    --col_base: #D36CFF;
+}
+
 #logo_adrar {
     width: 100px;
+    height: 80px;
+}
+
+.svgs-full {
+    width: 300px;
+    height: 250px;
+}
+
+.svgs-sm {
+    width: 200px;
     height: 100px;
+}
+
+.circle {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.completed {
+    background-color: #198754;
+}
+
+.awaiting {
+    background-color: #f7c41bd4;
+}
+
+.missing {
+    background-color: #dc3545;
+}
+
+tr td {
+    vertical-align: middle;
+}
+
+i[class] {
+    color: var(--col_base);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--col_base);
+}
+
+.hrs {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

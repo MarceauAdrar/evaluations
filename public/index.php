@@ -1,9 +1,17 @@
-<?php 
-include_once("../src/consts.php");
+<?php
+include_once("../src/db.php");
 
-include_once($PRIVATE_DIR . "db.php");
-
-if(empty($_SESSION["intern"]["intern_id"]) && !isset($_SESSION["intern"]["intern_id"])) {
-    header("Location: " . $PUBLIC_DIR . "connexion.php");
+if (!isset($_SESSION["intern"]["intern_id"])) {
+    header("Location: ./connexion.php");
 }
 
+$title = " | Accueil";
+
+ob_start();
+include_once("./header.php");
+?>
+
+<?php
+include_once("./footer.php");
+die(ob_get_clean());
+?> 
