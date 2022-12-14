@@ -38,12 +38,12 @@
                                                 FROM evaluations_dd
                                                 WHERE evaluation_dd_active = 1;";
                             $req_evaluations = $db->prepare($sql_evaluations);
-                            $req_evaluations->execute();
-                            foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
-                                <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_modules">
+                            $req_evaluations->execute(); ?>
+                            <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_modules">
+                                <?php foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
                                     <li><a class="dropdown-item" href="http://localhost/eval/public/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
-                                </ul>   
-                            <?php } ?>
+                                <?php } ?>
+                            </ul>
                         </li>
                     </ul>
                     <span class="navbar-text">
