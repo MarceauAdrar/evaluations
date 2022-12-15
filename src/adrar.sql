@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 15 déc. 2022 à 17:02
+-- Généré le : ven. 16 déc. 2022 à 00:22
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `evaluations` (
 --
 
 INSERT INTO `evaluations` (`evaluation_id`, `evaluation_title`, `evaluation_goals`, `evaluation_synopsis`, `evaluation_token`, `evaluation_errors_max`, `id_evaluation_dd`) VALUES
-(1, 'Balises manquantes', 'Savoir débugger;Savoir corriger', 'Dans cette évaluation, vous devrez trouvez les différentes erreurs glissées dans le code. ', '797abcb41afb5632de390f4ac33031f0', 5, 1);
+(1, 'Construire un fichier HTML de base valide', 'Savoir créer une page HTML basique', 'Dans cette évaluation, vous devrez construire un fichier HTML valide. ', '9de95532b3918dd89aa8e3d518c77ad0', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,7 @@ CREATE TABLE `interns_evaluations` (
 --
 
 INSERT INTO `interns_evaluations` (`intern_evaluation_id`, `intern_evaluation_completed`, `intern_evaluation_errors_found`, `id_intern`, `id_evaluation`) VALUES
-(6, 0, 0, 14, 1);
+(6, 1, 0, 14, 1);
 
 --
 -- Index pour les tables déchargées
