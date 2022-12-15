@@ -14,6 +14,7 @@ include_once("./header.php");
     sessionStorage.setItem("intern_username", "<?=$_SESSION["intern"]["intern_username"]?>");
 </script>
 <?php
+include_once("./js.php");
 include_once("./footer.php");
 die(ob_get_clean());
 ?> 
