@@ -29,6 +29,9 @@ function btnJoinEvaluation(id) {
         success: function(r) {
             $("#modalJoinEvaluation .modal-content").html("");
             location.reload();
+            setTimeout(function() {
+                location.href = $("#eval_" + id).attr("href");
+            }, 1000);
         }
     });
 }

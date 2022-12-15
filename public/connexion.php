@@ -48,6 +48,10 @@ include_once("./header.php");
     </div>
 </div>
 
+<script>
+    sessionStorage.clear();
+</script>
+
 <?php
 include_once("./footer.php");
 die(ob_get_clean()); 

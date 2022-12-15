@@ -1,5 +1,5 @@
 <?php
-include_once("../../src/db.php");
+include_once("../../../src/db.php");
 
 $title = " | HTML/CSS";
 
@@ -25,7 +25,7 @@ if ($req_lignes->rowCount() > 0) {
         if(empty($eval["id_intern"])) {
             $lignes .= '    <td><button type="button" class="btn btn-warning" data-bs-target="#modalJoinEvaluation" onclick="displayPromptJoinModal(' . $eval["evaluation_id"] . ');">Rejoindre l\'évaluation</button></td>';
         } elseif(empty($eval["intern_evaluation_completed"])) {
-            $lignes .= '    <td><a class="btn btn-info" href="http://localhost/eval/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
+            $lignes .= '    <td><a class="btn btn-info" id="eval_' . $eval["evaluation_id"] . '" href="http://localhost/eval/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
         } elseif($eval["evaluation_errors_max"] > $eval["intern_evaluation_errors_found"]) {
             $lignes .= '    <td><a class="btn btn-dark">Voir mes erreurs</a></td>';
         } else {
@@ -46,7 +46,7 @@ if ($req_lignes->rowCount() > 0) {
     $lignes .= '<tr><td colspan="6">Aucune donnée disponible</td></tr>';
 }
 ob_start();
-include_once("../header.php"); ?>
+include_once("../../header.php"); ?>
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2 text-center">
@@ -76,5 +76,6 @@ include_once("../header.php"); ?>
     </div>
 </div>
 <?php
-include_once("../footer.php");
+include_once("../../js.php");
+include_once("../../footer.php");
 die(ob_get_clean());

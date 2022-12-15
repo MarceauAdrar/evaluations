@@ -75,4 +75,14 @@ if(!empty($_POST["btn_join_evaluation"])) {
     die("ko");
 }
 
+if(!empty($_POST["save_code"])) {
+    $link = "../public/stagiaires/" . $_SESSION["intern"]["intern_username"]."/" . $_POST["module"] . "/" . $_POST["tp"] . ".html";
+    if(!is_file($link)) {
+        touch($link);
+    }
+    $eval = fopen($link, "w") or die("ko");
+    fwrite($eval, $_POST["html"]);
+    fclose($eval);
+    die("ok");
+}
 ?> 
