@@ -5,7 +5,7 @@
                 <div class="line-numbers">
                     <span></span>
                 </div>
-                <textarea id="code_editor" attr-module="html-css" attr-tp="tp1"></textarea>
+                <textarea id="code_editor" attr-module="html-css" attr-tp="tp1" spellcheck="false"></textarea>
             </div>
         </div>
         <div class="col-6" id="box_preview">
