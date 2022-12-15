@@ -57,7 +57,9 @@ echo $html;
 include_once("./js.php"); ?>
 <script src="./js/evals.js" type="text/javascript"></script>
 <script type="text/javascript">
+    /* Charge les boutons en haut de la page */
     loadButtons();
+    /* Charge l'éditeur et la fenêtre simulant la page écrite */
     reloadBoxs();
 </script>
 <?php include_once("./footer.php"); 
