@@ -3,5 +3,3 @@
         <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
         <script src="http://localhost/eval/public/js/tooltips.js" type="text/javascript"></script>
         <script src="http://localhost/eval/public/js/modals.js" type="text/javascript"></script>
-        <?php // La fonction reloadBoxs permet de charger la page DU stagiaire, la variable globale $_SESSION n'est pas accessible ici, le JS lui l'est ?>
-        <script src="http://localhost/eval/public/js/evals.js" type="text/javascript"></script>

@@ -44,7 +44,7 @@ tr td {
 }
 
 i[class] {
-    color: var(--col_base);
+    color: #FFFFFF;
 }
 
 .dropdown-item.active, .dropdown-item:active {

@@ -76,6 +76,10 @@ include_once("../../header.php"); ?>
     </div>
 </div>
 <?php
-include_once("../../js.php");
+include_once("../../js.php"); ?>
+<script>
+    sessionStorage.setItem("previous_uri", "<?=$_SERVER["REQUEST_URI"]?>");
+</script>
+<?php 
 include_once("../../footer.php");
 die(ob_get_clean());

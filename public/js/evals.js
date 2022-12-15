@@ -2,20 +2,14 @@ var textarea = document.querySelector('textarea');
 var lineNumbers = document.querySelector('.line-numbers');
 var typingTimer;
 var doneTypingInterval = 1000;
-var lineNumberMin = document.getElementById("web_preview").contentDocument.body.innerHTML.split(/\r\n|\r|\n/).length;
 
 textarea.addEventListener('keyup', event => {
-    if(event.code == "Enter") {
-        addLinesToEditor(event.target.value.split('\\n').length);
-    }
-    clearTimeout(typingTimer);
-    if(textarea.value) {
-        typingTimer = setTimeout(
-            function() { 
-                saveCode($("#code_editor").attr("attr-module"), $("#code_editor").attr("attr-tp"))
-            }, 
-            doneTypingInterval);
-    }
+    clearTimeout(typingTimer)
+    typingTimer = setTimeout(
+        function() { 
+            saveCode($("#code_editor").attr("attr-module"), $("#code_editor").attr("attr-tp"))
+        }, 
+        doneTypingInterval);
 });
 
 textarea.addEventListener('keydown', event => {
@@ -29,8 +23,21 @@ textarea.addEventListener('keydown', event => {
     }
 });
 
-function addLinesToEditor(i = 0) {
-    for(i ; i <= lineNumberMin ; i++) {
+function loadButtons() {
+    var goBackBtn = document.getElementById('btn_go_back');
+    goBackBtn.href = sessionStorage.getItem("previous_uri");
+}
+
+function addLinesToEditor(onlyBody = false) {
+    var lineNumberMin;
+    if(onlyBody) {
+        lineNumberMin = document.getElementById("web_preview").contentDocument.body.innerHTML.split(/\r\n|\r|\n/).length;
+    } else {
+        lineNumberMin = document.getElementById("web_preview").contentWindow.document.documentElement.innerHTML.split(/\r\n|\r|\n/).length;
+    }
+    console.log(lineNumberMin);
+    $(".line-numbers").html("");
+    for(var i = 0 ; i < lineNumberMin ; i++) {
         $(".line-numbers").html($(".line-numbers").html() + "<span></span>");
     }
 }
@@ -38,12 +45,18 @@ function addLinesToEditor(i = 0) {
 function reloadBoxs() {
     var intern_username = sessionStorage.getItem("intern_username");
     const link = "http://localhost/eval/public/stagiaires/" + intern_username + "/html-css/tp1.html";
-    addLinesToEditor(document.documentElement.innerHTML.split(/\r\n|\r|\n/).length);
+
     // Éditeur
     $("#code_editor").val(getHtmlContent(link));
     // IFrame
     var iframe = document.getElementById('web_preview');
     iframe.src = link;
+
+    setTimeout(function() {
+        // On ajoute les lignes à l'éditeur
+        addLinesToEditor(false);
+    }, 250);
+    
 }
 
 function getHtmlContent(URI) {
@@ -69,6 +82,23 @@ function saveCode(module, tp) {
         success: function(r) {
             if(r == "ok") {
                 reloadBoxs();
+            }
+        }
+    });
+}
+
+function submitEvaluation(module, tp) {
+    $.ajax({
+        url: "http://localhost/eval/src/requests.php", 
+        method: "post",
+        data: {
+            submit_evaluation: 1,  
+            module: module, 
+            tp: tp
+        }, 
+        success: function(r) {
+            if(r == "ok") {
+                location.href = $("#btn_go_back").attr("href");
             }
         }
     });

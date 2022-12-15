@@ -15,7 +15,7 @@
     <title>Evaluation finale<?= $title ?></title>
 </head>
 
-<body>
+<body oncontextmenu="return false;" onselectstart="return false;">
     <?php if(isset($_SESSION["intern"]["intern_id"])) { ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">

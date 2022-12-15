@@ -55,7 +55,9 @@ ob_start();
 include_once("./header.php"); 
 echo $html; 
 include_once("./js.php"); ?>
+<script src="./js/evals.js" type="text/javascript"></script>
 <script type="text/javascript">
+    loadButtons();
     reloadBoxs();
 </script>
 <?php include_once("./footer.php"); 

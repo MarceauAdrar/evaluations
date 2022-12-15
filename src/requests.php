@@ -85,4 +85,22 @@ if(!empty($_POST["save_code"])) {
     fclose($eval);
     die("ok");
 }
+
+if(!empty($_POST["submit_evaluation"])) {
+    $sql_update_intern_evaluation = "UPDATE interns_evaluations 
+                                    SET intern_evaluation_completed = 1 
+                                    WHERE id_intern=:id_intern 
+                                    AND id_evaluation = (SELECT evaluation_id 
+                                                        FROM evaluations_dd edd
+                                                        LEFT JOIN evaluations e ON (edd.evaluation_dd_id = e.id_evaluation_dd) 
+                                                        WHERE evaluation_dd_link=:evaluation_dd_link
+                                                        );";
+    $req_update_intern_evaluation = $db->prepare($sql_update_intern_evaluation);
+    $req_update_intern_evaluation->bindParam(":id_intern", $_SESSION["intern"]["intern_id"]);
+    $req_update_intern_evaluation->bindParam(":evaluation_dd_link", $_POST["module"]);
+    if($req_update_intern_evaluation->execute()) {
+        die("ok");
+    }
+    die("ko");
+}
 ?> 
