@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="http://localhost/eval/public/css/connexion.css" />
     <link rel="stylesheet" href="http://localhost/eval/public/css/tables.css" />
     <link rel="stylesheet" href="http://localhost/eval/public/css/evals.css" />
-    <script src="https://kit.fontawesome.com/fe9a1c5603.js" crossorigin="anonymous"></script>
     <title>Evaluation finale<?= $title ?></title>
 </head>
 
