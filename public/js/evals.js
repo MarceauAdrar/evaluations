@@ -31,9 +31,9 @@ function loadButtons() {
 function addLinesToEditor(onlyBody = false) {
     var lineNumberMin;
     if(onlyBody) {
-        lineNumberMin = document.getElementById("web_preview").contentDocument.body.innerHTML.split(/\r\n|\r|\n/).length;
+        lineNumberMin = document.getElementById("web_preview").contentDocument.body.innerHTML.split(/\r\n|\r|\n/).length + 1;
     } else {
-        lineNumberMin = document.getElementById("web_preview").contentWindow.document.documentElement.innerHTML.split(/\r\n|\r|\n/).length;
+        lineNumberMin = document.getElementById("web_preview").contentWindow.document.documentElement.innerHTML.split(/\r\n|\r|\n/).length + 3;
     }
     console.log(lineNumberMin);
     $(".line-numbers").html("");
