@@ -44,19 +44,23 @@ function addLinesToEditor(onlyBody = false) {
 
 function reloadBoxs() {
     var intern_username = sessionStorage.getItem("intern_username");
-    const link = "http://localhost/eval/public/stagiaires/" + intern_username + "/html-css/tp1.html";
+    const link = "http://" + SERVER_ADDR + "/eval/public/stagiaires/" + intern_username + "/html-css/tp1.html";
 
-    // Éditeur
-    $("#code_editor").val(getHtmlContent(link));
-    // IFrame
-    var iframe = document.getElementById('web_preview');
-    iframe.src = link;
-
-    setTimeout(function() {
-        // On ajoute les lignes à l'éditeur
-        addLinesToEditor(false);
-    }, 250);
+    if($("#code_editor").length) {
+        // Éditeur
+        $("#code_editor").val(getHtmlContent(link));
+        
+        setTimeout(function() {
+            // On ajoute les lignes à l'éditeur
+            addLinesToEditor(false);
+        }, 250);
+    }
     
+    if($("#web_preview").length) {
+        // IFrame
+        var iframe = document.getElementById('web_preview');
+        iframe.src = link;
+    }    
 }
 
 function getHtmlContent(URI) {
@@ -71,7 +75,7 @@ function getHtmlContent(URI) {
 
 function saveCode(module, tp) {
     $.ajax({
-        url: "http://localhost/eval/src/requests.php", 
+        url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
         method: "post",
         data: {
             save_code: 1, 
@@ -89,7 +93,7 @@ function saveCode(module, tp) {
 
 function submitEvaluation(module, tp) {
     $.ajax({
-        url: "http://localhost/eval/src/requests.php", 
+        url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
         method: "post",
         data: {
             submit_evaluation: 1,  

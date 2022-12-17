@@ -25,7 +25,7 @@ if ($req_lignes->rowCount() > 0) {
         if(empty($eval["id_intern"])) {
             $lignes .= '    <td><button type="button" class="btn btn-warning" data-bs-target="#modalJoinEvaluation" onclick="displayPromptJoinModal(' . $eval["evaluation_id"] . ');">Rejoindre l\'évaluation</button></td>';
         } elseif(empty($eval["intern_evaluation_completed"])) {
-            $lignes .= '    <td><a class="btn btn-info" id="eval_' . $eval["evaluation_id"] . '" href="http://localhost/eval/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
+            $lignes .= '    <td><a class="btn btn-info" id="eval_' . $eval["evaluation_id"] . '" href="/eval/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
         } elseif($eval["evaluation_errors_max"] > $eval["intern_evaluation_errors_found"]) {
             $lignes .= '    <td><a class="btn btn-dark">Voir mes erreurs</a></td>';
         } else {
@@ -37,7 +37,7 @@ if ($req_lignes->rowCount() > 0) {
                                 '<span class="circle missing" data-bs-toggle="tooltip" data-bs-placement="right" title="Pas encore inscrit à l\'évaluation !"'
                                 : (!empty($eval["intern_evaluation_completed"]) ? 
                                     '<span class="circle completed" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation terminée !"' 
-                                    : '<span class="circle awaiting" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation non commencée !"'
+                                    : '<span class="circle awaiting" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation en cours !"'
                                 )
                             ) . '></span></td>';
         $lignes .= '<tr>';

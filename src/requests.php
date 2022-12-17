@@ -1,6 +1,9 @@
 <?php
 include_once("./db.php");
 
+$array_b_editor = array("tp1", "tp2");
+$array_b_iframe = array("tp1");
+
 if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
     $sql = "SELECT * 
             FROM interns 
@@ -83,6 +86,7 @@ if(!empty($_POST["save_code"])) {
     $eval = fopen($link, "w") or die("ko");
     fwrite($eval, $_POST["html"]);
     fclose($eval);
+
     die("ok");
 }
 

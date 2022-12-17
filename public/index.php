@@ -12,6 +12,7 @@ include_once("./header.php");
 ?>
 <script>
     sessionStorage.setItem("intern_username", "<?=$_SESSION["intern"]["intern_username"]?>");
+    sessionStorage.setItem("SERVER_ADDR", "<?=$_SERVER["SERVER_ADDR"]?>");
 </script>
 <?php
 include_once("./js.php");

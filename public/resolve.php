@@ -39,6 +39,11 @@ if($req_check_token->rowCount() > 0) {
             $title = " | HTML/CSS (TP1)";
             $html = file_get_contents("../modules/html-css/tp1.php", false, $context);
             break;
+        case 2:
+            $title = " | HTML/CSS (TP2)";
+            $html = file_get_contents("../modules/html-css/tp2.php", false, $context);
+            break;
+
         default:
             $title = " | Erreur - Page introuvable";
             $html = file_get_contents("./error404.php");
