@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 16 déc. 2022 à 00:22
+-- Généré le : dim. 18 déc. 2022 à 23:28
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -42,7 +42,8 @@ CREATE TABLE `evaluations` (
 --
 
 INSERT INTO `evaluations` (`evaluation_id`, `evaluation_title`, `evaluation_goals`, `evaluation_synopsis`, `evaluation_token`, `evaluation_errors_max`, `id_evaluation_dd`) VALUES
-(1, 'Construire un fichier HTML de base valide', 'Savoir créer une page HTML basique', 'Dans cette évaluation, vous devrez construire un fichier HTML valide. ', '9de95532b3918dd89aa8e3d518c77ad0', 5, 1);
+(1, 'Construire un fichier HTML de base valide', 'Savoir créer une page HTML basique', 'Dans cette évaluation, vous devrez construire un fichier HTML valide. ', '9de95532b3918dd89aa8e3d518c77ad0', 11, 1),
+(2, 'Une erreur de parcours', 'Savoir débugger;Savoir corriger', 'Dans cette évaluation, vous devrez trouver les différentes erreurs glissées dans le code, trouvez-les et corrigez-les. ', '26a5d1aea50e69ecc18d4faeaefdc526', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -109,6 +110,7 @@ INSERT INTO `interns` (`intern_id`, `intern_last_name`, `intern_first_name`, `in
 CREATE TABLE `interns_evaluations` (
   `intern_evaluation_id` int(11) NOT NULL,
   `intern_evaluation_completed` tinyint(1) NOT NULL,
+  `intern_evaluation_correction` tinyint(1) NOT NULL,
   `intern_evaluation_errors_found` int(2) NOT NULL,
   `id_intern` int(11) NOT NULL,
   `id_evaluation` int(11) NOT NULL
@@ -118,8 +120,9 @@ CREATE TABLE `interns_evaluations` (
 -- Déchargement des données de la table `interns_evaluations`
 --
 
-INSERT INTO `interns_evaluations` (`intern_evaluation_id`, `intern_evaluation_completed`, `intern_evaluation_errors_found`, `id_intern`, `id_evaluation`) VALUES
-(6, 1, 0, 14, 1);
+INSERT INTO `interns_evaluations` (`intern_evaluation_id`, `intern_evaluation_completed`, `intern_evaluation_correction`, `intern_evaluation_errors_found`, `id_intern`, `id_evaluation`) VALUES
+(7, 1, 1, 11, 14, 1),
+(8, 0, 0, 0, 14, 2);
 
 --
 -- Index pour les tables déchargées
@@ -161,7 +164,7 @@ ALTER TABLE `interns_evaluations`
 -- AUTO_INCREMENT pour la table `evaluations`
 --
 ALTER TABLE `evaluations`
-  MODIFY `evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `evaluations_dd`
@@ -179,7 +182,7 @@ ALTER TABLE `interns`
 -- AUTO_INCREMENT pour la table `interns_evaluations`
 --
 ALTER TABLE `interns_evaluations`
-  MODIFY `intern_evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `intern_evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
