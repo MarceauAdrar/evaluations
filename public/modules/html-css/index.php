@@ -58,7 +58,7 @@ include_once("../../header.php"); ?>
                     <th>Titre</th>
                     <th>Objectifs</th>
                     <th>Lien</th>
-                    <th>Erreurs (trouvées/total)</th>
+                    <th>Notation (trouvées/totales)</th>
                     <th>État</th>
                 </thead>
                 <tbody>
