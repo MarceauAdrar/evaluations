@@ -40,7 +40,7 @@ if ($req_lignes->rowCount() > 0) {
                                     : '<span class="circle awaiting" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation en cours !"'
                                 )
                             ) . '></span></td>';
-        $lignes .= '<tr>';
+        $lignes .= '</tr>';
     }
 } else {
     $lignes .= '<tr><td colspan="6">Aucune donnée disponible</td></tr>';

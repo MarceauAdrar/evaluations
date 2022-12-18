@@ -4,6 +4,23 @@
     --col_base_tres_foncee: #7a3896;
 }
 
+html, body {
+    height: calc(100% - 25px);
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+} 
+
+footer {
+    height: 50px;
+}
+footer p {
+    margin: 0;
+    padding-top: 15px;
+}
+
 #logo_adrar {
     width: 100px;
     height: 80px;
