@@ -31,6 +31,12 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/eval/public">Accueil</a>
                         </li>
+                        <?php
+                        if($_SESSION["intern"]["intern_username"] == "mrodrigues18") { ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/eval/public/admin.php">Administration</a>
+                        </li>
+                        <?php } ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_modules" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Modules

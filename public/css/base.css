@@ -16,9 +16,15 @@ html, body {
 footer {
     height: 50px;
 }
+
 footer p {
     margin: 0;
     padding-top: 15px;
+}
+
+nav a:hover {
+    font-size: 1.21rem;
+    font-weight: 500;
 }
 
 #logo_adrar {
@@ -34,15 +40,6 @@ footer p {
 .svgs-sm {
     width: 200px;
     height: 100px;
-}
-
-button.btn {
-    background-color: var(--col_base);
-    text-decoration: none;
-}
-
-button.btn:hover {
-    background-color: var(--col_base_foncee);
 }
 
 @keyframes fadein {
@@ -164,4 +161,10 @@ i[class] {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.modules {  
+    border: 1px solid #d3d3d3;
+    border-radius: 20px;
+    padding: 20px;
 }

@@ -79,11 +79,15 @@ if(!empty($_POST["btn_join_evaluation"])) {
 }
 
 if(!empty($_POST["save_code"])) {
-    $link = "../public/stagiaires/" . $_SESSION["intern"]["intern_username"]."/" . $_POST["module"] . "/" . $_POST["tp"] . ".html";
-    if(!is_file($link)) {
-        touch($link);
+    $link = "../public/stagiaires/" . $_SESSION["intern"]["intern_username"]."/" . $_POST["module"];
+    $file = $_POST["tp"] . ".html";
+
+    if(!file_exists($link."/".$file)) {
+        if(!mkdir($link, 0777, true)) {
+            touch($link."/".$file);
+        }
     }
-    $eval = fopen($link, "w") or die("ko");
+    $eval = fopen($link."/".$file, "w") or die("ko");
     fwrite($eval, $_POST["html"]);
     fclose($eval);
 
@@ -94,14 +98,11 @@ if(!empty($_POST["submit_evaluation"])) {
     $sql_update_intern_evaluation = "UPDATE interns_evaluations 
                                     SET intern_evaluation_completed = 1 
                                     WHERE id_intern=:id_intern 
-                                    AND id_evaluation = (SELECT evaluation_id 
-                                                        FROM evaluations_dd edd
-                                                        LEFT JOIN evaluations e ON (edd.evaluation_dd_id = e.id_evaluation_dd) 
-                                                        WHERE evaluation_dd_link=:evaluation_dd_link
-                                                        );";
+                                    AND id_evaluation=:id_evaluation;";
     $req_update_intern_evaluation = $db->prepare($sql_update_intern_evaluation);
     $req_update_intern_evaluation->bindParam(":id_intern", $_SESSION["intern"]["intern_id"]);
-    $req_update_intern_evaluation->bindParam(":evaluation_dd_link", $_POST["module"]);
+    $id_evaluation = substr($_POST["tp"], 2);
+    $req_update_intern_evaluation->bindParam(":id_evaluation", $id_evaluation);
     if($req_update_intern_evaluation->execute()) {
         die("ok");
     }

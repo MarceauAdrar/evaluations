@@ -4,7 +4,7 @@ include_once("../../../src/db.php");
 $title = " | HTML/CSS";
 
 $lignes = "";
-$sql_lignes = "SELECT evaluation_id, evaluation_title, evaluation_goals, evaluation_token, evaluation_errors_max, intern_evaluation_completed, intern_evaluation_errors_found, id_intern
+$sql_lignes = "SELECT evaluation_id, evaluation_title, evaluation_goals, evaluation_token, evaluation_errors_max, intern_evaluation_completed, intern_evaluation_correction, intern_evaluation_errors_found, id_intern
                 FROM evaluations e
                 LEFT JOIN interns_evaluations ie ON (e.evaluation_id = ie.id_evaluation AND id_intern=:id_intern) 
                 WHERE id_evaluation_dd = 1;";
@@ -26,10 +26,12 @@ if ($req_lignes->rowCount() > 0) {
             $lignes .= '    <td><button type="button" class="btn btn-warning" data-bs-target="#modalJoinEvaluation" onclick="displayPromptJoinModal(' . $eval["evaluation_id"] . ');">Rejoindre l\'évaluation</button></td>';
         } elseif(empty($eval["intern_evaluation_completed"])) {
             $lignes .= '    <td><a class="btn btn-info" id="eval_' . $eval["evaluation_id"] . '" href="/eval/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
+        } elseif(empty($eval["intern_evaluation_correction"])) {
+            $lignes .= '    <td><div class="alert alert-warning mb-0">En attente de correction</div></td>';
         } elseif($eval["evaluation_errors_max"] > $eval["intern_evaluation_errors_found"]) {
-            $lignes .= '    <td><a class="btn btn-dark">Voir mes erreurs</a></td>';
+            $lignes .= '    <td><a class="btn btn-dark" href="/eval/public/achieved.php?module=html-css&tp=' . $eval["evaluation_id"] . '">Voir mes erreurs</a></td>';
         } else {
-            $lignes .= '    <td><div class="alert alert-success">Félicitations, vous avez réussi ce TP !</div></td>';
+            $lignes .= '    <td><div class="alert alert-success mb-0">Félicitations, vous avez terminé ce TP !</div></td>';
         }
         $lignes .= '    <td>(<span>' . (!isset($eval["intern_evaluation_errors_found"]) ? "XX" : $eval["intern_evaluation_errors_found"]) . '</span>/<span>' . $eval["evaluation_errors_max"] . '</span>)</td>';
         $lignes .= '    <td>' . 

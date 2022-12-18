@@ -21,7 +21,7 @@ textarea {
     resize: none;
 }
 
-.line-numbers {
+.line-numbers, .line-numbers-correction {
     width: 20px;
     text-align: right;
 }
@@ -32,6 +32,16 @@ textarea {
 
 .line-numbers span::before {
     content: counter(linenumber);
+    display: block;
+    color: #506882;
+}
+
+.line-numbers-correction span {
+    counter-increment: linenumbercorrection;
+}
+
+.line-numbers-correction span::before {
+    content: counter(linenumbercorrection);
     display: block;
     color: #506882;
 }

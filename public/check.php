@@ -23,20 +23,23 @@ if($_GET["module"] == "html-css") {
                 if(file_exists($tp)) {
                     $str = file_get_contents($tp);
                     preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
-
-                    if(sizeof($matches) == 11) {
-                        $sql_update_tp = "UPDATE interns_evaluations 
-                                            SET intern_evaluation_correction = 1 
-                                            WHERE id_intern=:intern_id 
-                                            AND id_evaluation = 1;";
-                        $req_update_tp = $db->prepare($sql_update_tp);
-                        $req_update_tp->bindParam(":intern_id", $intern["intern_id"]);
-                        if(!$req_update_tp->execute()) {
-                            $errors[$intern["intern_id"]]["message"] = "Une erreur s'est produite lors de la correction des tps";
-                            $errors[$intern["intern_id"]]["module"] = "html-css";
-                            $errors[$intern["intern_id"]]["tp"] = "1";
-                            $errors[$intern["intern_id"]]["username"] = $intern["intern_username"];
-                        }
+                    
+                    $errors_found = sizeof($matches);
+                    
+                    $sql_update_tp = "UPDATE interns_evaluations 
+                                        SET intern_evaluation_correction = 1, 
+                                        intern_evaluation_completed = 1,  
+                                        intern_evaluation_errors_found=:intern_evaluation_errors_found
+                                        WHERE id_intern=:intern_id 
+                                        AND id_evaluation = 1;";
+                    $req_update_tp = $db->prepare($sql_update_tp);
+                    $req_update_tp->bindParam(":intern_id", $intern["intern_id"]);
+                    $req_update_tp->bindParam(":intern_evaluation_errors_found", $errors_found);
+                    if(!$req_update_tp->execute()) {
+                        $errors[$intern["intern_id"]]["message"] = "Une erreur s'est produite lors de la correction des tps";
+                        $errors[$intern["intern_id"]]["module"] = "html-css";
+                        $errors[$intern["intern_id"]]["tp"] = "1";
+                        $errors[$intern["intern_id"]]["username"] = $intern["intern_username"];
                     }
                 }
             }
