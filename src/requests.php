@@ -107,4 +107,19 @@ if(!empty($_POST["submit_evaluation"])) {
     }
     die("ko");
 }
+
+if($_POST["load_informations_tp"]) {
+    $sql_select_informations_tp = "SELECT evaluation_title, evaluation_synopsis
+                                    FROM evaluations 
+                                    WHERE evaluation_id=:evaluation_id;";
+    $req_select_informations_tp = $db->prepare($sql_select_informations_tp);
+    $req_select_informations_tp->bindParam(":evaluation_id", $_POST["tp"]);
+    $req_select_informations_tp->execute();
+    $informations_tp = $req_select_informations_tp->fetch(PDO::FETCH_ASSOC);
+
+    die(json_encode(array(
+        "title" => $informations_tp["evaluation_title"], 
+        "body" => $informations_tp["evaluation_synopsis"], 
+    )));
+}
 ?> 

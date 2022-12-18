@@ -107,3 +107,19 @@ function submitEvaluation(module, tp) {
         }
     });
 }
+
+function loadInformationsTP(tp) {
+    $.ajax({
+        url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
+        method: "post",
+        dataType: "json",
+        data: {
+            load_informations_tp: 1, 
+            tp: tp
+        }, 
+        success: function(r) {
+            $("#information_tp_title").text(r.title);
+            $("#information_tp_body").text(r.body);
+        }
+    });
+}

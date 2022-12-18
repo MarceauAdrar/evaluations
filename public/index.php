@@ -9,7 +9,15 @@ $title = " | Accueil";
 
 ob_start();
 include_once("./header.php");
-?>
+?> 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Bienvenue sur la plateforme pour valider vos acquis</h1>      
+        </div>
+    </div>
+</div>
+
 <script>
     sessionStorage.setItem("intern_username", "<?=$_SESSION["intern"]["intern_username"]?>");
     sessionStorage.setItem("SERVER_ADDR", "<?=$_SERVER["SERVER_ADDR"]?>");

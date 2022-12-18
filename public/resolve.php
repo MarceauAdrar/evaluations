@@ -36,15 +36,17 @@ if($req_check_token->rowCount() > 0) {
 
     switch($eval["evaluation_id"]) {
         case 1:
+            $tp = 1;
             $title = " | HTML/CSS (TP1)";
             $html = file_get_contents("../modules/html-css/tp1.php", false, $context);
             break;
         case 2:
+            $tp = 2;
             $title = " | HTML/CSS (TP2)";
             $html = file_get_contents("../modules/html-css/tp2.php", false, $context);
             break;
-
         default:
+            $tp = 0;
             $title = " | Erreur - Page introuvable";
             $html = file_get_contents("./error404.php");
     }
@@ -57,13 +59,25 @@ if($req_check_token->rowCount() > 0) {
  * @var html est la variable qui reçoit le contenu à charger
  */
 ob_start();
-include_once("./header.php"); 
+include_once("./header.php"); ?>
+<!-- Div permettant d'afficher une petite bulle sur les pages de TPs -->
+<button role="button" onclick="showInformationsModal();" class="btn help-floating-btn btn-floating wave-effect">
+    <i class="fa-solid fa-circle-info"></i>
+</button>
+<div class="help-resource">
+    <h3 id="information_tp_title"></h3>
+    <hr/>
+    <p id="information_tp_body"></p>
+</div>
+<?php 
 echo $html; 
 include_once("./js.php"); ?>
 <script src="./js/evals.js" type="text/javascript"></script>
 <script type="text/javascript">
     /* Charge les boutons en haut de la page */
     loadButtons();
+    /* Charge l'aide dans la modale */
+    loadInformationsTP(<?=$tp;?>);
     /* Charge l'éditeur et la fenêtre simulant la page écrite */
     reloadBoxs();
 </script>

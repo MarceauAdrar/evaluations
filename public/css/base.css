@@ -1,5 +1,7 @@
 :root {
-    --col_base: #D36CFF;
+    --col_base: #A14CC5;
+    --col_base_foncee: #8f43af;
+    --col_base_tres_foncee: #7a3896;
 }
 
 #logo_adrar {
@@ -15,6 +17,90 @@
 .svgs-sm {
     width: 200px;
     height: 100px;
+}
+
+button.btn {
+    background-color: var(--col_base);
+    text-decoration: none;
+}
+
+button.btn:hover {
+    background-color: var(--col_base_foncee);
+}
+
+@keyframes fadein {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 74%;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        left: 74%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+button.btn:active, a.btn:focus {
+    background-color: var(--col_base_tres_foncee);
+}
+
+.wave-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: var(--col_base);
+    vertical-align: middle;
+    z-index: 1;
+    -webkit-transition: .3s ease-out;
+    transition: .3s
+}
+
+.help-floating-btn {
+    position: fixed;
+    top: 88%;
+    left: 94%;
+    border-radius: 15px;
+    font-size: 22px;
+}
+
+.help-floating-btn i {
+    padding-top: 10%;
+}
+
+.btn-floating {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+}
+
+.fade-in {
+    animation: 0.3s ease-in 0s forwards running fadein;
+}
+.fade-out {
+    animation: 0.3s ease-out 0s forwards running fadeout;
+}
+
+.help-resource {
+    position: fixed;
+    padding: 10px;
+    bottom: 13%;
+    left: 100%;
+    width: 23vw;
+    z-index: 100;
+    border: 1px solid lightslategrey;
+    border-radius: 15px;
+    min-height: 10vh;
 }
 
 .circle {
