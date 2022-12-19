@@ -33,22 +33,73 @@ if($req_check_token->rowCount() > 0) {
     );
     
     $context  = stream_context_create($opts);
+    $link_template_html = "../modules/html-css/templates";
+    $link_intern_html = "../public/stagiaires/" . $_SESSION["intern"]["intern_username"]."/html-css";
+    if(!mkdir($link_intern_html, 0664, true)) {
+        die("Erreur lors de la création de l'arborescence");
+    }
 
+    $file = "";
+    $bHtml = 0;
+    $bCss = 0;
     switch($eval["evaluation_id"]) {
         case 1:
             $tp = 1;
             $title = " | HTML/CSS (TP1)";
+
+            $bHtml = 1;
+            $bCss = 0;
+            $file = "tp1.html";
+
             $html = file_get_contents("../modules/html-css/tp1.php", false, $context);
             break;
         case 2:
             $tp = 2;
             $title = " | HTML/CSS (TP2)";
+            
+            $bHtml = 1;
+            $bCss = 0;
+            $file = "tp2.html";
+            
             $html = file_get_contents("../modules/html-css/tp2.php", false, $context);
+            break;
+        case 3:
+            $tp = 3;
+            $title = " | HTML/CSS (TP3)";
+            
+            $bHtml = 0;
+            $bCss = 1;
+            $file = "tp3.html";
+
+            /* Création du fichier CSS */
+            if(!file_exists($link_intern_html."/tp3.css")) {
+                touch($link_intern_html."/tp3.css");
+            }
+
+            $html = file_get_contents("../modules/html-css/tp3.php", false, $context);
+            break;
+        case 4:
+            $tp = 4;
+            $title = " | HTML/CSS (TP4)";
+            
+            $bHtml = 0;
+            $bCss = 1;
+            $file = "tp4.html";
+
+            /* Création du fichier CSS */
+            if(!file_exists($link_intern_html."/tp4.css")) {
+                touch($link_intern_html."/tp4.css");
+            }
+
+            $html = file_get_contents("../modules/html-css/tp4.php", false, $context);
             break;
         default:
             $tp = 0;
             $title = " | Erreur - Page introuvable";
             $html = file_get_contents("./error404.php");
+    }
+    if(!empty($file) && !file_exists($link_intern_html."/".$file)) {
+        copy($link_template_html."/".$file, $link_intern_html."/".$file);
     }
 } else {
     $title = " | Erreur - Page introuvable";
@@ -74,6 +125,9 @@ echo $html;
 include_once("./js.php"); ?>
 <script src="./js/evals.js" type="text/javascript"></script>
 <script type="text/javascript">
+    sessionStorage.setItem("tp", "<?=$tp?>");
+    sessionStorage.setItem("bHtml", <?=$bHtml?>);
+    sessionStorage.setItem("bCss", <?=$bCss?>);
     /* Charge les boutons en haut de la page */
     loadButtons();
     /* Charge l'aide dans la modale */

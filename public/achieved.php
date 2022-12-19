@@ -9,9 +9,11 @@ if(!empty($_GET["module"]) && !empty($_GET["tp"])) {
                             AND id_intern=:id_intern;";
     $req_check_achieved = $db->prepare($sql_check_achieved);
     $req_check_achieved->bindParam(":id_evaluation", $_GET["tp"]);
-    $req_check_achieved->bindParam(":id_intern", $_SESSION["intern"]["intern_id"]);
+    $id_intern = (!empty($_GET["intern_id"]) ? $_GET["intern_id"] : $_SESSION["intern"]["intern_id"]);
+    $intern_username = (!empty($_GET["intern_username"]) ? $_GET["intern_username"] : $_SESSION["intern"]["intern_username"]);
+    $req_check_achieved->bindParam(":id_intern", $id_intern);
     $req_check_achieved->execute();
-    if(empty($req_check_achieved->fetch(PDO::FETCH_COLUMN))) {
+    if(empty($req_check_achieved->fetch(PDO::FETCH_COLUMN)) && (!isset($_GET["correction"]) && empty($_GET["correction"]))) {
         header("Location: ./index.php");
     }
 }
@@ -37,6 +39,7 @@ include_once("./header.php"); ?>
                     </div>
                     <textarea readonly id="code_editor_readonly" spellcheck="false"></textarea>
                 </div>
+                <iframe id="web_preview" src="" frameborder="0"></iframe>
             </div>
             <div class="col-6">
                 <div class="editor">
@@ -45,6 +48,7 @@ include_once("./header.php"); ?>
                     </div>
                     <textarea readonly id="code_editor_correction_readonly" spellcheck="false"></textarea>
                 </div>
+                <iframe id="web_preview_correction" src="" frameborder="0"></iframe>
             </div>
         </div>
     </div>
@@ -56,10 +60,9 @@ include_once("./header.php"); ?>
         loadButtons();
         chargerCorrection();
         function chargerCorrection() {
-            var intern_username = sessionStorage.getItem("intern_username");
-            const link = "http://" + SERVER_ADDR + "/eval/public/stagiaires/" + intern_username + "/" + sessionStorage.getItem("module") + "/tp" + sessionStorage.getItem("tp") + ".html";
+            const link = "http://" + SERVER_ADDR + "/eval/public/stagiaires/" + "<?=$intern_username?>" + "/" + sessionStorage.getItem("module") + "/tp" + sessionStorage.getItem("tp") + ".html";
             const linkCorrection = "http://" + SERVER_ADDR + "/eval/modules/" + sessionStorage.getItem("module") + "/corrections/tp" + sessionStorage.getItem("tp") + ".html";
-            
+
             var html_editor_1 = getHtmlContent(link);
             $("#code_editor_readonly").val(html_editor_1);
             var html_editor_2 = getHtmlContent(linkCorrection);
@@ -77,5 +80,16 @@ include_once("./header.php"); ?>
                     $(".line-numbers-correction").html($(".line-numbers-correction").html() + "<span></span>");
                 }
             }, 250);
+            
+            if($("#web_preview").length) {
+                // IFrame
+                var iframe = document.getElementById('web_preview');
+                iframe.src = link;
+            }
+            if($("#web_preview_correction").length) {
+                // IFrame
+                var iframeCorrection = document.getElementById('web_preview_correction');
+                iframeCorrection.src = linkCorrection;
+            }
         }
     </script>

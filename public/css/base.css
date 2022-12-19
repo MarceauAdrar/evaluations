@@ -80,12 +80,13 @@ button.btn:active, a.btn:focus {
     transition: .3s
 }
 
-.help-floating-btn {
+.help-floating-btn, .help-floating-btn:hover, .help-floating-btn:active {
     position: fixed;
     top: 88%;
     left: 94%;
     border-radius: 15px;
     font-size: 22px;
+    background-color: var(--col_base);
 }
 
 .help-floating-btn i {
@@ -115,6 +116,7 @@ button.btn:active, a.btn:focus {
     border: 1px solid lightslategrey;
     border-radius: 15px;
     min-height: 10vh;
+    background-color: #FFFFFF;
 }
 
 .circle {

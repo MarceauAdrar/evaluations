@@ -7,7 +7,7 @@ textarea.addEventListener('keyup', event => {
     clearTimeout(typingTimer)
     typingTimer = setTimeout(
         function() { 
-            saveCode($("#code_editor").attr("attr-module"), $("#code_editor").attr("attr-tp"))
+            saveCode($("#code_editor").attr("attr-extension"), $("#code_editor").attr("attr-module"), $("#code_editor").attr("attr-tp"))
         }, 
         doneTypingInterval);
 });
@@ -28,14 +28,19 @@ function loadButtons() {
     goBackBtn.href = sessionStorage.getItem("previous_uri");
 }
 
-function addLinesToEditor(onlyBody = false) {
+function addLinesToEditor(onlyBody = false, lineFromIFrame = true) {
     var lineNumberMin;
-    if(onlyBody) {
-        lineNumberMin = document.getElementById("web_preview").contentDocument.body.innerHTML.split(/\r\n|\r|\n/).length + 1;
+    
+    if($("#web_preview").length && lineFromIFrame) {
+        if(onlyBody) {
+            lineNumberMin = document.getElementById("web_preview").contentDocument.body.innerHTML.split(/\r\n|\r|\n/).length + 1;
+        } else {
+            lineNumberMin = document.getElementById("web_preview").contentWindow.document.documentElement.innerHTML.split(/\r\n|\r|\n/).length + 3;
+        }
     } else {
-        lineNumberMin = document.getElementById("web_preview").contentWindow.document.documentElement.innerHTML.split(/\r\n|\r|\n/).length + 3;
+        lineNumberMin = $("#code_editor").val().split(/\r\n|\r|\n/).length + 3;
     }
-    console.log(lineNumberMin);
+
     $(".line-numbers").html("");
     for(var i = 0 ; i < lineNumberMin ; i++) {
         $(".line-numbers").html($(".line-numbers").html() + "<span></span>");
@@ -44,22 +49,30 @@ function addLinesToEditor(onlyBody = false) {
 
 function reloadBoxs() {
     var intern_username = sessionStorage.getItem("intern_username");
-    const link = "http://" + SERVER_ADDR + "/eval/public/stagiaires/" + intern_username + "/html-css/tp1.html";
+    var link = "http://" + SERVER_ADDR + "/eval/public/stagiaires/" + intern_username + "/html-css/tp" + sessionStorage.getItem("tp");
+    var ext;
+    var lineFromIFrame = true;
+    if(sessionStorage.getItem("bHtml") == "1") {
+        ext = ".html";
+    } else if(sessionStorage.getItem("bCss") == "1") {
+        lineFromIFrame = false;
+        ext = ".css";
+    }
 
     if($("#code_editor").length) {
         // Éditeur
-        $("#code_editor").val(getHtmlContent(link));
+        $("#code_editor").val(getHtmlContent(link + ext));
         
         setTimeout(function() {
             // On ajoute les lignes à l'éditeur
-            addLinesToEditor(false);
+            addLinesToEditor(false, lineFromIFrame);
         }, 250);
     }
     
     if($("#web_preview").length) {
         // IFrame
         var iframe = document.getElementById('web_preview');
-        iframe.src = link;
+        iframe.src = link + ".html";
     }    
 }
 
@@ -73,13 +86,14 @@ function getHtmlContent(URI) {
     return xmlHttp.responseText;
 }
 
-function saveCode(module, tp) {
+function saveCode(extension, module, tp) {
     $.ajax({
         url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
         method: "post",
         data: {
             save_code: 1, 
-            html: $("#code_editor").val(), 
+            code: $("#code_editor").val(), 
+            extension: extension, 
             module: module, 
             tp: tp
         }, 
@@ -119,7 +133,7 @@ function loadInformationsTP(tp) {
         }, 
         success: function(r) {
             $("#information_tp_title").text(r.title);
-            $("#information_tp_body").text(r.body);
+            $("#information_tp_body").html(r.body);
         }
     });
 }

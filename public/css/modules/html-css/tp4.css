@@ -1,0 +1,32 @@
+@media screen and (orientation: portrait) {
+    body {
+        background-color: red;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        background-color: blue;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    p {
+        color: green;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    p {
+        color: orange;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    p {
+        color: yellow;
+        font-size: 18px;
+    }
+}

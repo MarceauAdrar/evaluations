@@ -1,9 +1,6 @@
 <?php
 include_once("./db.php");
 
-$array_b_editor = array("tp1", "tp2");
-$array_b_iframe = array("tp1");
-
 if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
     $sql = "SELECT * 
             FROM interns 
@@ -80,7 +77,7 @@ if(!empty($_POST["btn_join_evaluation"])) {
 
 if(!empty($_POST["save_code"])) {
     $link = "../public/stagiaires/" . $_SESSION["intern"]["intern_username"]."/" . $_POST["module"];
-    $file = $_POST["tp"] . ".html";
+    $file = $_POST["tp"] . "." . $_POST["extension"];
 
     if(!file_exists($link."/".$file)) {
         if(!mkdir($link, 0777, true)) {
@@ -88,7 +85,7 @@ if(!empty($_POST["save_code"])) {
         }
     }
     $eval = fopen($link."/".$file, "w") or die("ko");
-    fwrite($eval, $_POST["html"]);
+    fwrite($eval, $_POST["code"]);
     fclose($eval);
 
     die("ok");
@@ -122,5 +119,21 @@ if($_POST["load_informations_tp"]) {
         "title" => $informations_tp["evaluation_title"], 
         "body" => $informations_tp["evaluation_synopsis"], 
     )));
+}
+
+if($_POST["valid_intern_correction"]) {
+    $sql_update_correction = "UPDATE interns_evaluations 
+                                SET intern_evaluation_correction = 1, 
+                                intern_evaluation_errors_found=:errors_found
+                                WHERE id_intern=:id_intern 
+                                AND id_evaluation=:id_evaluation;";
+    $req_update_correction = $db->prepare($sql_update_correction);
+    $req_update_correction->bindParam(":id_intern", $_POST["id_intern"]);
+    $req_update_correction->bindParam(":errors_found", $_POST["errors_found"]);
+    $req_update_correction->bindParam(":id_evaluation", $_POST["tp"]);
+    if($req_update_correction->execute()) {
+        die("ok");
+    }
+    die("ko");
 }
 ?> 

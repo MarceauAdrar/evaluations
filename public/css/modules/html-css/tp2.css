@@ -1,0 +1,7 @@
+h1 {
+    font-size: 50px;
+}
+h1::before {
+    content: "La feuille CSS est maintenant correctement liée: ";
+    color: green;
+}
