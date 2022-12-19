@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 18 déc. 2022 à 23:28
+-- Généré le : lun. 19 déc. 2022 à 06:31
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -43,7 +43,9 @@ CREATE TABLE `evaluations` (
 
 INSERT INTO `evaluations` (`evaluation_id`, `evaluation_title`, `evaluation_goals`, `evaluation_synopsis`, `evaluation_token`, `evaluation_errors_max`, `id_evaluation_dd`) VALUES
 (1, 'Construire un fichier HTML de base valide', 'Savoir créer une page HTML basique', 'Dans cette évaluation, vous devrez construire un fichier HTML valide. ', '9de95532b3918dd89aa8e3d518c77ad0', 11, 1),
-(2, 'Une erreur de parcours', 'Savoir débugger;Savoir corriger', 'Dans cette évaluation, vous devrez trouver les différentes erreurs glissées dans le code, trouvez-les et corrigez-les. ', '26a5d1aea50e69ecc18d4faeaefdc526', 2, 1);
+(2, 'Une erreur de parcours', 'Savoir débugger;Savoir corriger', 'Dans cette évaluation, vous devrez trouver les différentes erreurs glissées dans le code, trouvez-les et corrigez-les. Vous n\'avez pas besoin d\'utiliser de balises <code>style</code>.', '26a5d1aea50e69ecc18d4faeaefdc526', 2, 1),
+(3, 'Du CSS dans l\'air', 'Savoir sélectionner un élément HTML en CSS;Savoir styliser un élément par rapport à un autre', 'Dans cette évaluation, vous allez devoir sélectionner toutes les balises de <code>paragraphe</code> et n\'appliquer un style qu\'à l\'une d\'elles.\nLibre choix sur la méthode pour effectuer cette tâche.', '5a1841f1fc4ac836e27260ab736be74b', 1, 1),
+(4, 'Les médias s\'en mêlent', 'Savoir modifier des éléments en fonction de la largeur/longueur de l\'écran;Savoir changer des éléments en fonction de la résolution de l\'écran', 'Ici, vous allez devoir réaliser deux grosses phases:\n<ol>\n<li>La première: changer le fond en fonction de la disposition de l\'écran avec l\'<code>orientation</code> (rouge en portrait, bleu en paysage).</li>\n<li>La seconde: changer la taille de la police des paragraphes et leur couleur pour les résolutions minimales suivantes : 320px (18px jaune); 768px (22px orange) ; 1440px (30px vert)</li>', '2937904b40de8ddb973bbff315a04b22', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,7 @@ CREATE TABLE `evaluations_dd` (
 
 INSERT INTO `evaluations_dd` (`evaluation_dd_id`, `evaluation_dd_name`, `evaluation_dd_link`, `evaluation_dd_active`) VALUES
 (1, 'HTML/CSS', 'html-css', 1),
-(2, 'Frameworks', 'bootstrap', 1);
+(2, 'Frameworks', 'bootstrap', 0);
 
 -- --------------------------------------------------------
 
@@ -117,14 +119,6 @@ CREATE TABLE `interns_evaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `interns_evaluations`
---
-
-INSERT INTO `interns_evaluations` (`intern_evaluation_id`, `intern_evaluation_completed`, `intern_evaluation_correction`, `intern_evaluation_errors_found`, `id_intern`, `id_evaluation`) VALUES
-(7, 1, 1, 11, 14, 1),
-(8, 0, 0, 0, 14, 2);
-
---
 -- Index pour les tables déchargées
 --
 
@@ -164,7 +158,7 @@ ALTER TABLE `interns_evaluations`
 -- AUTO_INCREMENT pour la table `evaluations`
 --
 ALTER TABLE `evaluations`
-  MODIFY `evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `evaluations_dd`
@@ -182,7 +176,7 @@ ALTER TABLE `interns`
 -- AUTO_INCREMENT pour la table `interns_evaluations`
 --
 ALTER TABLE `interns_evaluations`
-  MODIFY `intern_evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `intern_evaluation_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
