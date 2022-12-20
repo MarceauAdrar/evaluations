@@ -47,7 +47,7 @@ if(!empty($_POST["display_prompt_join_modal"])) {
                     <?= $goals ?>
                 </div>
                 <div class="col-6">
-                    <img class="svgs-sm" src="http://localhost/eval/public/imgs/join.svg" alt="Illustration pour l'intégration à l'évaluation"/>
+                    <img class="svgs-sm" src="/eval/public/imgs/join.svg" alt="Illustration pour l'intégration à l'évaluation"/>
                 </div>
             </div>
         </div>

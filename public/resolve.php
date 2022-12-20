@@ -35,8 +35,10 @@ if($req_check_token->rowCount() > 0) {
     $context  = stream_context_create($opts);
     $link_template_html = "../modules/html-css/templates";
     $link_intern_html = "../public/stagiaires/" . $_SESSION["intern"]["intern_username"]."/html-css";
-    if(!mkdir($link_intern_html, 0664, true)) {
-        die("Erreur lors de la création de l'arborescence");
+    if(!is_dir($link_intern_html)) {
+        if(!mkdir($link_intern_html, 0664, true)) {
+            die("Erreur lors de la création de l'arborescence");
+    	}
     }
 
     $file = "";
@@ -92,6 +94,21 @@ if($req_check_token->rowCount() > 0) {
             }
 
             $html = file_get_contents("../modules/html-css/tp4.php", false, $context);
+            break;
+        case 5:
+            $tp = 5;
+            $title = " | HTML/CSS (Intégration 2)";
+            
+            $bHtml = 1;
+            $bCss = 1;
+            $file = "rando_nuit_integration.html";
+
+            /* Création du fichier CSS */
+            if(!file_exists($link_intern_html."/integration_2.css")) {
+                touch($link_intern_html."/integration_2.css");
+            }
+
+            $html = file_get_contents("../modules/html-css/rando_nuit_integration.php", false, $context);
             break;
         default:
             $tp = 0;

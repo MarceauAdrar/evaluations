@@ -1,0 +1,28 @@
+@media screen and (orientation: portrait) {
+    *{
+        background-color: red;
+     }
+}
+@media screen and (orientation: labdscaoe) {
+    *{
+        background-color: blue;
+     }
+}
+@media screen , (min-height: 320px){
+    *{
+        font-size: 18px;
+        color: yellow;
+     }
+}
+@media screen , (min-height: 768px){
+    *{
+      font-size: 22px;
+      color: orange; 
+     }
+}
+@media screen , (min-height: 1440px){
+    *{
+      font-size: 30px;
+      color: green; 
+     }
+}

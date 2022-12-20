@@ -22,7 +22,8 @@ $interns_html = $req_select_html->fetchAll(PDO::FETCH_ASSOC);
 $sql_select_tps_html_css = "SELECT evaluation_id 
                             FROM evaluations e
                             JOIN interns_evaluations ie ON (e.evaluation_id = ie.id_evaluation AND intern_evaluation_correction = 0 AND intern_evaluation_completed = 1) 
-                            WHERE id_evaluation_dd = 1;";
+                            WHERE id_evaluation_dd = 1 
+			    GROUP BY evaluation_id;";
 $req_select_tps_html_css = $db->prepare($sql_select_tps_html_css);
 $req_select_tps_html_css->execute();
 $tps_html_css = $req_select_tps_html_css->fetchAll(PDO::FETCH_COLUMN);

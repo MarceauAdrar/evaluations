@@ -1,0 +1,26 @@
+@media (orientation: landscape){
+  body{
+    background-color: blue;}
+}
+@media (orientation: portrait){
+  body{
+    background-color: red;}
+}
+@media only screen and (max-width: 1440px){
+  p{
+    color: green;
+    font-size: 30px;
+   }
+}
+@media only screen and (max-width: 768px){
+  p{
+    color: orange;
+    font-size: 22px;
+   }
+}
+@media only screen and (max-width: 320px){
+  p{
+    color: yellow;
+    font-size: 18px;
+   }
+}

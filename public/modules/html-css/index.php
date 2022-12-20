@@ -53,7 +53,7 @@ include_once("../../header.php"); ?>
     <div class="row">
         <div class="col-8 offset-2 text-center">
             <h1>Liste des évaluations disponibles</h1>
-            <img class="svgs-full" src="http://localhost/eval/public/imgs/inspection.svg" alt="Illustration code review" />
+            <img class="svgs-full" src="/eval/public/imgs/inspection.svg" alt="Illustration code review" />
             <table class="table table-bordered table-striped table-responsive mt-3">
                 <thead>
                     <th>N°</th>

@@ -1,0 +1,150 @@
+.fond1 {
+    Width:1920px;
+    Height:1281.56px;
+    Top:-88px;
+    background:url(desert.png);
+}
+
+#RN{
+    position: absolute;
+    width: 61px;
+    height: 68px;
+    left: 250px;
+    top: 75px;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 190%;
+    color: #FFFFFF;    
+}
+
+#loupe{
+    position: absolute;
+    left: 116.5%;
+    right: 60%;
+    top: 21.5%;
+    bottom: 20.83%;
+}
+
+.boutton{
+    position: absolute;
+    width: 167px;
+    height: 62px;
+    left: 1507px;
+    top: 157px;
+    background: #00C9E0;
+    box-shadow: 5px 15px 40px rgba(0, 201, 224, 0.2);
+    border-radius: 48px;
+}
+
+#menu{
+    text-align: center;
+    font-family: 'ABeeZee';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.Rando{
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 160px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+    
+
+.centrer{
+text-align: center;
+}
+
+
+#orga{
+    font-family: 'ABeeZee';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.neque{
+    font-family: 'ABeeZee';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+h2{
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+
+#scroll{
+    position: absolute;
+    width: 56px;
+    height: 28px;
+    left: 237px;
+    top: 867px;
+    font-family: 'ABeeZee';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 190%;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    opacity: 0.9;
+    transform: rotate(-90deg);
+}
+
+
+
+
+.gradient{
+position: absolute;
+width: 1920px;
+height: 377px;
+left: 1px;
+top: 817px;
+
+background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 76.64%, #011627 100%);
+}
+
+#barre{
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    left: 250px;
+    top: 882px;
+    
+    background: linear-gradient(180deg, #09F4F4 0%, #00C9E0 100%);
+    border-radius: 13px;
+}
+
+
+.points{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 326px;
+    top: 2015px;
+    background: #41EAD4;
+}
+
+

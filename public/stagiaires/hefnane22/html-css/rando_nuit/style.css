@@ -1,0 +1,93 @@
+.presentation {
+    background-image: url(./imgs/ganapathy-kumar-GLmhbqbn1WA-unsplash\ 1\ \(1\).png);
+    width: 1920px;
+    height: 1281.56px;
+}
+/* MENU */
+/* header{
+    margin-right: 263px;
+    margin-top: 165px;
+    
+} */
+.menu {
+    display: flex;
+    justify-content: end;
+}
+img {
+    width: 24px;
+    height: 24px;
+    margin-right: 33px;
+    margin-top: 95px;
+}
+
+.menu > span {
+    background-color: #00C9E0;
+    border-radius: 40px;
+    margin-right: 263px;
+    margin-top: 70px;
+    width: 167px;
+    height: 62px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+.menu  p {
+    margin-top: 22px;
+}
+.RN {
+    position: absolute;
+    width: 61px;
+    height: 68px;
+    left: 250px;
+    top: 75px;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    color: white;
+}
+
+.RN p {
+    margin-top: 0;
+}
+
+
+/* FIN MENU */
+
+/* texte rando */
+.Txt{
+    margin-top: 190px;
+    margin-right: 619px;
+    margin-left: 668px;
+    margin-bottom: 731px;
+    color: white;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    color: white;
+    font-size: 98px;
+    font-weight: 700;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    margin-bottom: 0;
+}
+.Txt  h4 {
+    font-size: 18px;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'ABeeZee';
+} 
+.Txt  p {
+    font-size: 17px;
+    font-style: normal;
+    line-height: 150%;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'ABeeZee';
+} 
+/* fin texte rando*/
