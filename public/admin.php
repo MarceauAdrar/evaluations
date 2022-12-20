@@ -78,8 +78,14 @@ include_once("./header.php"); ?>
                                 <td><a href="achieved.php?module=html-css&tp=<?=$intern["evaluation_id"]?>&intern_username=<?=$intern["intern_username"]?>&intern_id=<?=$intern["intern_id"]?>&correction=1" class="btn btn-info btn-sm">Voir</a></td>
                                 <td><?=(!empty($intern["intern_evaluation_completed"]) ? '<span class="circle completed" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation terminée !"></span>' : '<span class="circle awaiting" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation en cours !"></span>')?></td>
                                 <td><?=(!empty($intern["intern_evaluation_correction"]) ? '<span class="circle completed" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation corrigée !"></span>' : '<span class="circle awaiting" style="cursor: pointer;" onclick="validInternCorrection(' . $intern["intern_id"] . ', ' . $intern["evaluation_id"] . ');" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation non corrigée !"></span>')?></td>
-                                <td class="text-center"><span id="errors_found_plus_one_<?=$intern["evaluation_id"]?>_<?=$intern["intern_id"]?>" value="<?=intval($intern["intern_evaluation_errors_found"]+1)?>"><?=$intern["intern_evaluation_errors_found"]?></span>/<?=$intern["evaluation_errors_max"]?><?=($intern["intern_evaluation_errors_found"] < $intern["evaluation_errors_max"] ? '<i class="fa-solid fa-plus-circle" style="cursor: pointer; float: right; padding-top: 2%; color: var(--col_base);" onclick="validInternCorrection(' . $intern["intern_id"] . ', ' . $intern["evaluation_id"] . ');"></i>' : '')?></td>
-                                <td class="text-center"><?=number_format(floatval($intern["intern_evaluation_errors_found"]/$intern["evaluation_errors_max"])*100, 0)?></td>
+                                <td class="text-center">
+                                    <?php if(!empty($intern["evaluation_errors_max"])) { ?>
+                                        <span id="errors_found_plus_one_<?=$intern["evaluation_id"]?>_<?=$intern["intern_id"]?>" value="<?=intval($intern["intern_evaluation_errors_found"]+1)?>"><?=$intern["intern_evaluation_errors_found"]?></span>
+                                        /
+                                        <?=$intern["evaluation_errors_max"]?><?=($intern["intern_evaluation_errors_found"] < $intern["evaluation_errors_max"] ? '<i class="fa-solid fa-plus-circle" style="cursor: pointer; float: right; padding-top: 2%; color: var(--col_base);" onclick="validInternCorrection(' . $intern["intern_id"] . ', ' . $intern["evaluation_id"] . ');"></i>' : '')?>
+                                    <?php } ?>
+                                </td>
+                                <td class="text-center"><?=(!empty($intern["evaluation_errors_max"]) ? number_format(floatval($intern["intern_evaluation_errors_found"]/$intern["evaluation_errors_max"])*100, 0) : "")?></td>
                             </tr>
                         <?php }} else { ?>
                             <tr>

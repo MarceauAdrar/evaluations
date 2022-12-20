@@ -5,7 +5,7 @@ if (!empty($_SESSION["intern"]["intern_id"]) && isset($_SESSION["intern"]["inter
     header("Location: ./index.php");
 }
 
-$sql_check_token = "SELECT evaluation_id, evaluation_title, evaluation_title, evaluation_synopsis, evaluation_token 
+$sql_check_token = "SELECT evaluation_id, evaluation_title, evaluation_title, evaluation_synopsis, evaluation_token, evaluation_errors_max 
                     FROM evaluations e
                     LEFT JOIN interns_evaluations ie ON (e.evaluation_id = ie.id_evaluation AND ie.id_intern=:id_intern AND intern_evaluation_completed = 0)
                     WHERE evaluation_token=:evaluation_token;";
@@ -14,6 +14,7 @@ $req_check_token->bindParam(":id_intern", $_SESSION["intern"]["intern_id"]);
 $req_check_token->bindParam(":evaluation_token", $_GET["token"]);
 $req_check_token->execute();
 $eval = $req_check_token->fetch(PDO::FETCH_ASSOC);
+$evaluation_errors_max = $eval["evaluation_errors_max"];
 
 $html = "";
 if($req_check_token->rowCount() > 0) {
@@ -113,8 +114,23 @@ if($req_check_token->rowCount() > 0) {
             if(!file_exists($link_intern_html."/style.css")) {
                 touch($link_intern_html."/style.css");
             }
-
-            $html = file_get_contents("../modules/html-css/rando_nuit_integration.php", false, $context);
+            
+            $html = '
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 mb-3 mt-3">
+                            <div class="float-start">
+                                <a class="btn btn-primary" id="btn_go_back"><i class="fa-solid fa-chevron-left"></i>&nbsp;Retour</a>
+                            </div>
+                            <div class="float-end">
+                                <a class="btn btn-success" id="btn_submit" href="#" onclick="submitEvaluation(\'html-css\', \'tp1\');"><i class="fa-solid fa-paper-plane"></i>&nbsp;Soumettre à validation</a>
+                            </div>
+                        </div>
+                        <div class="col-12" id="box_preview">
+                            <iframe id="web_preview_full" src="http://' . $_SERVER["SERVER_ADDR"] . '/eval/public/stagiaires/' . $_SESSION["intern"]["intern_username"] . '/html-css/rando_nuit/index.html" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>';
             break;
         default:
             $tp = 0;
@@ -142,6 +158,8 @@ include_once("./header.php"); ?>
     <h3 id="information_tp_title"></h3>
     <hr/>
     <p id="information_tp_body"></p>
+    <hr/>
+    <p><i>Points maximums obtenables:</i> <?=$evaluation_errors_max?></p>
 </div>
 <?php 
 echo $html; 

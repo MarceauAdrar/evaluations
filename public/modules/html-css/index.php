@@ -33,7 +33,11 @@ if ($req_lignes->rowCount() > 0) {
         } else {
             $lignes .= '    <td><div class="alert alert-success mb-0">Félicitations, vous avez terminé ce TP !</div></td>';
         }
-        $lignes .= '    <td>(<span>' . (!isset($eval["intern_evaluation_errors_found"]) ? "XX" : $eval["intern_evaluation_errors_found"]) . '</span>/<span>' . $eval["evaluation_errors_max"] . '</span>)</td>';
+        if(!empty($eval["evaluation_errors_max"])) {
+            $lignes .= '    <td>(<span>' . (!isset($eval["intern_evaluation_errors_found"]) ? "XX" : $eval["intern_evaluation_errors_found"]) . '</span>/<span>' . $eval["evaluation_errors_max"] . '</span>)</td>';
+        } else {
+            $lignes .= '    <td></td>';
+        }
         $lignes .= '    <td>' . 
                             (empty($eval["id_intern"]) ? 
                                 '<span class="circle missing" data-bs-toggle="tooltip" data-bs-placement="right" title="Pas encore inscrit à l\'évaluation !"'

@@ -2,23 +2,22 @@
 include_once("./db.php");
 
 if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
-    $sql = "SELECT * 
+    $sql = "SELECT *  
             FROM interns 
-            WHERE intern_username=:intern_username 
-            AND intern_password=:intern_password;";
+            WHERE intern_username=:intern_username;";
     $req = $db->prepare($sql);
     $req->bindParam(":intern_username", $_POST["intern_username"]);
-    $req->bindParam(":intern_password", md5($_POST["intern_password"]));
     $req->execute();
+    $intern = $req->fetch(PDO::FETCH_ASSOC);
 
-    $_SESSION["form_connexion"]["errors"] = 0;
-
-    if($req->rowCount() == 1) {
-        $_SESSION["intern"] = $req->fetch(PDO::FETCH_ASSOC);
+    if(password_verify($_POST["intern_password"], $intern["intern_password"])) {
+        $_SESSION["form_connexion"]["errors"] = 0;
+        $_SESSION["intern"] = $intern;
         header("Location: ../public/index.php");
+    } else {
+        $_SESSION["form_connexion"]["errors"] = 1;
+        header("Location: ../public/connexion.php");
     }
-    $_SESSION["form_connexion"]["errors"] = 1;
-    header("Location: ../public/connexion.php", );
 }
 
 if(!empty($_POST["display_prompt_join_modal"])) {
