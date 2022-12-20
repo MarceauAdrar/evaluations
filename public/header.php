@@ -53,6 +53,22 @@
                                 <?php } ?>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_quiz" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Quiz
+                            </a>
+                            <?php 
+                            $sql_evaluations = "SELECT evaluation_dd_name, evaluation_dd_link 
+                                                FROM evaluations_dd
+                                                WHERE evaluation_dd_active = 1;";
+                            $req_evaluations = $db->prepare($sql_evaluations);
+                            $req_evaluations->execute(); ?>
+                            <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_quiz">
+                                <?php foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
+                                    <li><a class="dropdown-item" href="/eval/public/quiz/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
                     </ul>
                     <span class="navbar-text">
                         <?=$_SESSION["intern"]["intern_first_name"] . " " . $_SESSION["intern"]["intern_last_name"]?>
