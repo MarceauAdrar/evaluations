@@ -52,3 +52,11 @@ iframe {
     width: 100%;
     height: calc(100vh - 232px);
 }
+
+.file-title {
+    position: absolute;
+    top: 18.6%;
+    right: 51%;
+    background-color: #282a3a;
+    color: wheat;
+}

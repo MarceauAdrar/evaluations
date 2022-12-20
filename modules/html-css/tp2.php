@@ -10,6 +10,7 @@
         </div>
         <div class="col-6" id="box_code">
             <div class="editor">
+                <span class="file-title"><i>index.html</i></span>
                 <div class="line-numbers">
                     <span></span>
                 </div>
