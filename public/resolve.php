@@ -102,6 +102,7 @@ if($req_check_token->rowCount() > 0) {
             $bHtml = 1;
             $bCss = 1;
             $file = "index.html";
+            $link_template_html = $link_template_html . "/rando_nuit";
             $link_intern_html = $link_intern_html . "/rando_nuit";
 
             if(!is_dir($link_intern_html)) {
