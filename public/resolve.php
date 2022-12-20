@@ -101,11 +101,16 @@ if($req_check_token->rowCount() > 0) {
             
             $bHtml = 1;
             $bCss = 1;
-            $file = "rando_nuit_integration.html";
+            $file = "index.html";
+            $link_intern_html = $link_intern_html . "/rando_nuit";
+
+            if(!is_dir($link_intern_html)) {
+                mkdir($link_intern_html);
+            }
 
             /* Création du fichier CSS */
-            if(!file_exists($link_intern_html."/integration_2.css")) {
-                touch($link_intern_html."/integration_2.css");
+            if(!file_exists($link_intern_html."/style.css")) {
+                touch($link_intern_html."/style.css");
             }
 
             $html = file_get_contents("../modules/html-css/rando_nuit_integration.php", false, $context);
