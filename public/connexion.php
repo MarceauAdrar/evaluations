@@ -18,9 +18,9 @@ include_once("./header.php");
         <div class="col-6 offset-3">
             <div id="form_connexion_container">
                 <!-- Illustration de la connexion -->
-                <img src="/public/imgs/login.svg" alt="Illustration de la connexion" id="form_logo_login">
+                <img src="./imgs/login.svg" alt="Illustration de la connexion" id="form_logo_login">
                 
-                <form action="/src/requests.php" method="POST">
+                <form action="../src/requests.php" method="POST">
                     <!-- Champs caché permettant en back de pouvoir traiter uniquement ce formulaire -->
                     <input type="hidden" name="intern_connexion" id="intern_connexion" value="1">
 
@@ -48,26 +48,43 @@ include_once("./header.php");
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <h5 class="card-title">Kanban</h5>
-                <p class="card-text">Accédez au kanban, gérez vos TODO</p>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <h5 class="card-title">Évaluations</h5>
-                <p class="card-text">Validez vos acquis avec les évaluations proposées dans les modules</p>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <h5 class="card-title">Évaluations</h5>
-                <p class="card-text">Validez vos acquis avec les évaluations proposées dans les modules</p>
+    <div class="row mt-4">
+        <div class="col-8 offset-2">
+            <div class="row">
+                <h3>Les autres sites accessibles</h3>
+                <div class="col-4">
+                    <div class="card">
+                        <a class="text-decoration-none text-reset" href="http://kanban.adrar">
+                            <img src="./imgs/under_construction.svg" class="card-img-top" alt="WIP">
+                            <div class="card-body">
+                                <h5 class="card-title">Kanban</h5>
+                                <p class="card-text">Accédez au kanban, gérez vos TODO</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <a class="text-decoration-none text-reset" href="http://evaluations.adrar">
+                            <img src="./imgs/under_construction.svg" class="card-img-top" alt="WIP">
+                            <div class="card-body">
+                                <h5 class="card-title">Évaluations</h5>
+                                <p class="card-text">Validez vos acquis avec les évaluations proposées dans les modules</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <a class="text-decoration-none text-reset" href="http://192.168.190.10:3000">
+                            <img src="./imgs/under_construction.svg" class="card-img-top" alt="WIP">
+                            <div class="card-body">
+                                <h5 class="card-title">Gogs</h5>
+                                <p class="card-text">Un git local à cette machine, permet d'avoir un backup sur place</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

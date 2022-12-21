@@ -60,7 +60,7 @@ include_once("./header.php"); ?>
             <div class="modules mt-3">
                 <h4>Données du module HTML</h4>
                 <?php foreach($tps_html_css as $value) { ?>
-                    <a class="btn btn-warning mb-2" href="check.php?module=html-css&tp=<?=$value?>">Correction TP<?=$value?></a>
+                    <a class="btn btn-warning mb-2" href="./check.php?module=html-css&tp=<?=$value?>">Correction TP<?=$value?></a>
                 <?php } ?>
                 <table class="table table-bordered table-striped table-responsive">
                     <thead>
@@ -80,7 +80,7 @@ include_once("./header.php"); ?>
                             <tr>
                                 <td class="text-center"><?=$intern["evaluation_id"]?></td>
                                 <td>(<?=$intern["intern_id"]?>)&nbsp;<?=$intern["intern_first_name"]?> <?=$intern["intern_last_name"]?></td>
-                                <td><a href="achieved.php?module=html-css&tp=<?=$intern["evaluation_id"]?>&intern_username=<?=$intern["intern_username"]?>&intern_id=<?=$intern["intern_id"]?>&correction=1" class="btn btn-info btn-sm">Voir</a></td>
+                                <td><a href="./achieved.php?module=html-css&tp=<?=$intern["evaluation_id"]?>&intern_username=<?=$intern["intern_username"]?>&intern_id=<?=$intern["intern_id"]?>&correction=1" class="btn btn-info btn-sm">Voir</a></td>
                                 <td><?=(!empty($intern["intern_evaluation_completed"]) ? '<span class="circle completed" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation terminée !"></span>' : '<span class="circle awaiting" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation en cours !"></span>')?></td>
                                 <td><?=(!empty($intern["intern_evaluation_correction"]) ? '<span class="circle completed" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation corrigée !"></span>' : '<span class="circle awaiting" style="cursor: pointer;" onclick="validInternCorrection(' . $intern["intern_id"] . ', ' . $intern["evaluation_id"] . ');" data-bs-toggle="tooltip" data-bs-placement="right" title="Évaluation non corrigée !"></span>')?></td>
                                 <td class="text-center">
@@ -104,7 +104,7 @@ include_once("./header.php"); ?>
             <div class="modules mt-3">
                 <h4>Données du module Bootstrap</h4>
                 <?php foreach($tps_bootstrap as $value) { ?>
-                    <a class="btn btn-warning mb-2" href="check.php?module=html-css&tp=<?=$value?>">Correction TP<?=$value?></a>
+                    <a class="btn btn-warning mb-2" href="./check.php?module=html-css&tp=<?=$value?>">Correction TP<?=$value?></a>
                 <?php } ?>
                 <table class="table table-bordered table-striped table-responsive">
                     <thead>
@@ -152,7 +152,7 @@ include_once("./header.php"); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/eval/src/requests.php" method="post">
+                <form action="../src/requests.php" method="post">
                     <div class="mb-3">
                         <label for="form_course_title" class="form-label">Titre du cours:</label>
                         <input type="text" class="form-control" name="form_course_title" id="form_course_title" placeholder="HTML...">
@@ -195,7 +195,7 @@ include_once("./js.php"); ?>
     sessionStorage.setItem("previous_uri", "<?=$_SERVER["REQUEST_URI"]?>");
     function validInternCorrection(id_intern, tp) {
         $.ajax({
-            url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
+            url: "../src/requests.php", 
             method: "post",
             data: {
                 valid_intern_correction: 1,

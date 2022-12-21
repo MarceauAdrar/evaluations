@@ -8,10 +8,10 @@
     <!-- CSS only -->
     <link href="//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/eval/public/css/base.css" />
-    <link rel="stylesheet" href="/eval/public/css/connexion.css" />
-    <link rel="stylesheet" href="/eval/public/css/tables.css" />
-    <link rel="stylesheet" href="/eval/public/css/evals.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/connexion.css" />
+    <link rel="stylesheet" href="./css/tables.css" />
+    <link rel="stylesheet" href="./css/evals.css" />
     <title>Evaluation finale<?= $title ?></title>
 </head>
 
@@ -20,8 +20,8 @@
     <?php if(isset($_SESSION["intern"]["intern_id"])) { ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/eval/public">
-                    <img src="/eval/public/imgs/adrar_logo.svg" alt="Logo de l'ADRAR" id="logo_adrar" />
+                <a class="navbar-brand" href="/">
+                    <img src="./imgs/adrar_logo.svg" alt="Logo de l'ADRAR" id="logo_adrar" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,12 +29,12 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/eval/public">Accueil</a>
+                            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                         </li>
                         <?php
                         if($_SESSION["intern"]["intern_username"] == "mrodrigues18") { ?>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/eval/public/admin.php">Administration</a>
+                            <a class="nav-link active" aria-current="page" href="./admin.php">Administration</a>
                         </li>
                         <?php } ?>
                         <li class="nav-item dropdown">
@@ -49,7 +49,7 @@
                             $req_evaluations->execute(); ?>
                             <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_modules">
                                 <?php foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
-                                    <li><a class="dropdown-item" href="/eval/public/modules/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
+                                    <li><a class="dropdown-item" href="./modules/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -65,7 +65,7 @@
                             $req_evaluations->execute(); ?>
                             <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_quiz">
                                 <?php foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
-                                    <li><a class="dropdown-item" href="/eval/public/quiz/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
+                                    <li><a class="dropdown-item" href="./quiz/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -73,7 +73,7 @@
                     <span class="navbar-text">
                         <?=$_SESSION["intern"]["intern_first_name"] . " " . $_SESSION["intern"]["intern_last_name"]?>
                         &nbsp;
-                        <a href="/eval/public/logout.php">Se déconnecter</a>
+                        <a href="./logout.php">Se déconnecter</a>
                     </span>
                 </div>
             </div>
