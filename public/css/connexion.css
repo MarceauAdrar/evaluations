@@ -1,0 +1,15 @@
+#form_connexion_container {
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#form_logo_login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 33vw;
+    height: 10vh;
+    margin-bottom: 10px;
+} 

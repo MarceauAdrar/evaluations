@@ -1,0 +1,24 @@
+body:nth-of-type(1){
+background-image: url(ganapathy-kumar-GLmhbqbn1WA-unsplash\ 1\ \(5\).png);
+}
+h1:nth-of-type(1){
+    font-size: 50px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: aliceblue;
+    text-align: center;
+    margin-top: 200px;
+}
+h4{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: aliceblue;
+    text-align: center;
+}
+p:nth-of-type(1){
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: aliceblue;
+    text-align: center;
+    margin-left: 250px;
+    margin-right: 250px;
+}

@@ -1,0 +1,85 @@
+.fond1{
+    background:url("image-fond.png") ;
+    position: absolute;
+    width: 100%;
+    
+}
+
+.fond2{
+    background:url("") ;
+    position: absolute;
+    width: 100%;
+}
+
+.randonuit{
+    position: absolute;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-top: 100px;
+    font-size: 100px;
+    color: aliceblue;
+    
+}
+
+h1{
+    font-size: 15px;
+    text-align: center;
+}
+
+.randonuit p{
+    font-size: 10px;
+    text-align: center;
+}
+
+.R{
+   width: 60px; 
+   margin-left: 150px;
+   padding-top: 70px;
+   font-weight: 700;
+}
+
+.R2{
+    margin-left: 600px;
+    padding-top: -20px;
+}
+
+.reserve {
+    color: white;
+    width: 600px;
+    margin-left: 200px;
+    padding-top: 1100px;
+    line-height: 110%;
+    grid-template-columns: 1fr 1fr ;
+   
+    display: grid;
+}
+.reserve > h2{
+    border: 5px solid purple;
+}
+
+.scroll{
+    width: 5px;
+    height: 100px;
+    margin-left: 150px;
+    padding-top: 500px;
+    
+}
+
+.scroll > h6{
+    writing-mode: vertical-rl;
+    margin-left: -6px;
+    margin-bottom: 4px;
+    
+   
+}
+
+.social{
+    position: absolute;
+    margin-left:90%;
+    
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    display: grid;
+    
+}
+
+    

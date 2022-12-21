@@ -1,0 +1,1 @@
+var SERVER_ADDR = sessionStorage.getItem("SERVER_ADDR");
