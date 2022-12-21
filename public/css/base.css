@@ -175,6 +175,7 @@ i[class] {
     height: 35vh;
 }
 
-.card-title {
-    text-decoration: underline;
+.card-body {
+    overflow-y: auto;
+    max-height: 17.2vh;
 }

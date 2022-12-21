@@ -32,9 +32,9 @@ include_once("./header.php");
             foreach($courses as $course) { ?>
                 <div class="col-3 mb-3">
                     <div class="card" onclick="showCourse(<?=$course["course_id"]?>);">
-                        <img src="/eval/public/imgs/<?=$course["course_illustration"]?>" class="card-img-top" alt="Illustration HTML/CSS/JS">
+                        <img src="./imgs/<?=$course["course_illustration"]?>" class="card-img-top" alt="Illustration HTML/CSS/JS">
                         <div class="card-body">
-                            <h5 class="card-title"><?=$course["course_title"]?></h5>
+                            <h5 class="card-title text-decoration-underline"><?=$course["course_title"]?></h5>
                             <p class="card-text"><?=$course["course_synopsis"]?></p>
                         </div>
                     </div>
