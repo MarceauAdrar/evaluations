@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap);
 
 @media only screen and (min-width: 375px) {
@@ -57,4 +58,65 @@
     .rectangle1{
         display: flex;
     }
+=======
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap);
+
+@media only screen and (min-width: 375px) {
+    body {
+        background-color: #0B2E4B;
+        color: #FFFFFF;
+        z-index: 1;
+        top: 0;
+        width: 375px;
+        font-family: Playfair Display;
+    }
+
+    #body_container div{
+        max-width: 320px;
+    }
+
+    #container_image_fond {
+        background-image: url("ciel_étoilé.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: inline-block;
+        position: relative;
+        top: 0;
+        height: 1403.56px;
+        z-index: 0;
+
+    }
+
+
+    h1 {
+        text-align: center;
+        font-size: 100px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 72px;
+    }
+
+    #container_principal {
+        width: 320px;
+    }
+
+
+    /*--- FOOTER ---*/
+
+    #container_footer div{
+        text-align: center;
+    }
+
+    #ligne{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .rectangle1{
+        display: flex;
+    }
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8
 }

@@ -13,7 +13,7 @@ if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
     if(password_verify($_POST["intern_password"], $intern["intern_password"])) {
         $_SESSION["form_connexion"]["errors"] = 0;
         $_SESSION["intern"] = $intern;
-        header("Location: ../public/index.php");
+        header("Location: ../index.php");
     } else {
         $_SESSION["form_connexion"]["errors"] = 1;
         header("Location: ../public/connexion.php");
@@ -105,7 +105,7 @@ if(!empty($_POST["submit_evaluation"])) {
     die("ko");
 }
 
-if(!empty($_POST["load_informations_tp"])) {
+if($_POST["load_informations_tp"]) {
     $sql_select_informations_tp = "SELECT evaluation_title, evaluation_synopsis
                                     FROM evaluations 
                                     WHERE evaluation_id=:evaluation_id;";
@@ -120,7 +120,7 @@ if(!empty($_POST["load_informations_tp"])) {
     )));
 }
 
-if(!empty($_POST["valid_intern_correction"])) {
+if($_POST["valid_intern_correction"]) {
     $sql_update_correction = "UPDATE interns_evaluations 
                                 SET intern_evaluation_correction = 1, 
                                 intern_evaluation_errors_found=:errors_found
@@ -131,69 +131,6 @@ if(!empty($_POST["valid_intern_correction"])) {
     $req_update_correction->bindParam(":errors_found", $_POST["errors_found"]);
     $req_update_correction->bindParam(":id_evaluation", $_POST["tp"]);
     if($req_update_correction->execute()) {
-        die("ok");
-    }
-    die("ko");
-}
-
-if(!empty($_POST["show_course"])) {
-    $success = "ko";
-    $modal_content = "";
-
-    $sql_select_course = "SELECT course_id, course_title, course_text, course_keywords, course_link, course_illustration 
-                            FROM courses
-                            WHERE course_id=:course_id;";
-    $req_select_course = $db->prepare($sql_select_course);
-    $req_select_course->bindParam(":course_id", $_POST["course_id"]);
-    if($req_select_course->execute()) {
-        $course = $req_select_course->fetch(PDO::FETCH_ASSOC);
-        
-        $success = "ok";
-
-        $course_keywords = explode(";", $course["course_keywords"]);
-        $keywords = "";
-        foreach ($course_keywords as $keyword) {
-            $keywords .= "<code>" . $keyword . "</code>";
-        }
-    
-        ob_start(); ?>
-        <div class="modal-header">
-            <h5 class="modal-title" id="modalCourseTitle"><?= $course["course_title"] ?></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <p><?=$course["course_text"]?></p>
-            <?=$keywords?>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fermer</button>
-            <a class="btn btn-primary" data-bs-dismiss="modal" href="<?=$course["course_link"]?>" target="_blank">Voir</a>
-        </div>
-        <?php 
-        $modal_content = ob_get_clean();
-    }
-    
-    die(json_encode(array(
-        "success" => $success, 
-        "modal_content" => $modal_content
-    )));
-}
-
-if(!empty($_POST["add_course"])) {
-    $sql_insert_course = "INSERT INTO courses (course_title, course_synopsis, course_text, course_keywords, course_link, course_type, course_illustration, course_active) 
-                            VALUES(:course_title, :course_synopsis, :course_text, :course_keywords, :course_link, 'html', 'under_construction.svg', :course_active)";
-    $req_insert_course = $db->prepare($sql_insert_course);
-    $req_insert_course->bindParam(":course_title", $_POST["form_course_title"]);
-    $req_insert_course->bindParam(":course_synopsis", $_POST["form_course_synopsis"]);
-    $req_insert_course->bindParam(":course_text", $_POST["form_course_text"]);
-    $req_insert_course->bindParam(":course_keywords", $_POST["form_course_keywords"]);
-    $req_insert_course->bindParam(":course_link", $_POST["form_course_link"]);
-    $course_active = 0;
-    if($_POST["form_course_active"] == "true") {
-        $course_active = 1;
-    }
-    $req_insert_course->bindParam(":course_active", $course_active);
-    if($req_insert_course->execute()) {
         die("ok");
     }
     die("ko");

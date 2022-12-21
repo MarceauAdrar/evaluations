@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @media only screen and (orientation:portrait) {
 p {
 color: red;
@@ -29,4 +30,37 @@ p {
 color: green;
 font-size: 30px;
 }
+=======
+@media only screen and (orientation:portrait) {
+p {
+color: red;
+}
+}
+
+@media only screen and (orientation:landscape) {
+p {
+color: blue;
+}
+}
+
+@media only screen and (min-width: 320px) {
+p {
+color: yellow;
+font-size: 18px;
+}
+}
+
+@media only screen and (min-width: 768px) {
+p {
+color: pink;
+font-size: 22px;
+}
+}
+
+@media only screen and (min-width: 1440px) {
+p {
+color: green;
+font-size: 30px;
+}
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8
 }

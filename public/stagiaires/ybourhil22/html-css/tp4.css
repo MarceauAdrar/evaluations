@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @media screen and (orientation: portrait) {
     h1{
         background-color: red;
@@ -26,4 +27,34 @@
     p{
         background-color: green;
     }
+=======
+@media screen and (orientation: portrait) {
+    h1{
+        background-color: red;
+    }
+}
+
+@media all and (orientation: landscape) {
+    p{
+        background-color: blue;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    h1{
+        background-color: green;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    h1{
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    p{
+        background-color: green;
+    }
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8
 }

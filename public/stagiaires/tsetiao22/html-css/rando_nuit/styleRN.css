@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   #rn{
 position: absolute;
 width: 61px;
@@ -90,3 +91,97 @@ border-radius: 48px;
   }
 
 
+=======
+  #rn{
+position: absolute;
+width: 61px;
+height: 68px;
+left: 31px;
+top: 2px;
+font-family: 'Playfair Display';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 190%;
+/* or 68px */
+color: #FFFFFF;
+}
+
+span{
+    color: #41EAD4;
+}
+
+
+.menu{
+    position: absolute;
+width: 64.53px;
+height: 62px;
+left: 292px;
+top: 5px;
+
+background: #00C9E0;
+/* Button Shadow */
+
+box-shadow: 5px 15px 40px rgba(0, 201, 224, 0.2);
+border-radius: 48px;
+}
+
+  
+  .page1{
+    background-image: url(ganapathy-kumar-GLmhbqbn1WA-unsplash\ 1.png);
+    background-position: center top;
+    height: 1180px;
+    width: 375px;
+  }
+
+  h1{
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 128px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    position: absolute;
+    left: 0.8%;
+    right: 4.18%;
+    top: 1.49%;
+    bottom: 93.81%;
+  }
+
+  h2{
+    font-family: 'ABeeZee';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: absolute;
+    left: 2.4%;
+    right: -1.33%;
+    top: 45.19%;
+    bottom: 93.24%;
+  }
+
+  p{
+    font-family: 'ABeeZee';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    text-align: center;
+    color: #FFFFFF;
+
+    position: absolute;
+    width: 278px;
+    height: 240px;
+    left: 40px;
+    top: 460px;
+  }
+
+
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8

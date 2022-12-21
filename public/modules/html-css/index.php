@@ -25,11 +25,11 @@ if ($req_lignes->rowCount() > 0) {
         if(empty($eval["id_intern"])) {
             $lignes .= '    <td><button type="button" class="btn btn-warning" data-bs-target="#modalJoinEvaluation" onclick="displayPromptJoinModal(' . $eval["evaluation_id"] . ');">Rejoindre l\'évaluation</button></td>';
         } elseif(empty($eval["intern_evaluation_completed"])) {
-            $lignes .= '    <td><a class="btn btn-info" id="eval_' . $eval["evaluation_id"] . '" href="/eval/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
+            $lignes .= '    <td><a class="btn btn-info" id="eval_' . $eval["evaluation_id"] . '" href="/evaluations/public/resolve.php?token=' . $eval["evaluation_token"] . '">Reprendre l\'évaluation</a></td>';
         } elseif(empty($eval["intern_evaluation_correction"])) {
             $lignes .= '    <td><div class="alert alert-warning mb-0">En attente de correction</div></td>';
         } elseif($eval["evaluation_errors_max"] > $eval["intern_evaluation_errors_found"]) {
-            $lignes .= '    <td><a class="btn btn-dark" href="/eval/public/achieved.php?module=html-css&tp=' . $eval["evaluation_id"] . '">Voir mes erreurs</a></td>';
+            $lignes .= '    <td><a class="btn btn-dark" href="/evaluations/public/achieved.php?module=html-css&tp=' . $eval["evaluation_id"] . '">Voir mes erreurs</a></td>';
         } else {
             $lignes .= '    <td><div class="alert alert-success mb-0">Félicitations, vous avez terminé ce TP !</div></td>';
         }
@@ -57,7 +57,7 @@ include_once("../../header.php"); ?>
     <div class="row">
         <div class="col-8 offset-2 text-center">
             <h1>Liste des évaluations disponibles</h1>
-            <img class="svgs-full" src="/eval/public/imgs/inspection.svg" alt="Illustration code review" />
+            <img class="svgs-full" src="/public/imgs/inspection.svg" alt="Illustration code review" />
             <table class="table table-bordered table-striped table-responsive mt-3">
                 <thead>
                     <th>N°</th>

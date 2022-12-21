@@ -2,7 +2,8 @@
 include_once("../src/db.php");
 
 if (!empty($_SESSION["intern"]["intern_id"]) && isset($_SESSION["intern"]["intern_id"])) {
-    header("Location: ./index.php");
+    die(var_dump($_SESSION));
+    header("Location: ../index.php");
 }
 
 $title = " | Connexion";
@@ -17,9 +18,9 @@ include_once("./header.php");
         <div class="col-6 offset-3">
             <div id="form_connexion_container">
                 <!-- Illustration de la connexion -->
-                <img src="./imgs/login.svg" alt="Illustration de la connexion" id="form_logo_login">
+                <img src="/public/imgs/login.svg" alt="Illustration de la connexion" id="form_logo_login">
                 
-                <form action="../src/requests.php" method="POST">
+                <form action="/src/requests.php" method="POST">
                     <!-- Champs caché permettant en back de pouvoir traiter uniquement ce formulaire -->
                     <input type="hidden" name="intern_connexion" id="intern_connexion" value="1">
 
@@ -43,6 +44,30 @@ include_once("./header.php");
                         <button class="btn btn-primary mt-2" type="submit">Se connecter</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <h5 class="card-title">Kanban</h5>
+                <p class="card-text">Accédez au kanban, gérez vos TODO</p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <h5 class="card-title">Évaluations</h5>
+                <p class="card-text">Validez vos acquis avec les évaluations proposées dans les modules</p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <h5 class="card-title">Évaluations</h5>
+                <p class="card-text">Validez vos acquis avec les évaluations proposées dans les modules</p>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h1{
     color: red;
   }
@@ -13,3 +14,20 @@ h1{
   #p_3{
     color: yellow;
   }
+=======
+h1{
+    color: red;
+  }
+  
+  #p_1{
+    color: blue;
+  }
+  
+  #p_2{
+    color: green;
+  }
+
+  #p_3{
+    color: yellow;
+  }
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8

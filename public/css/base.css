@@ -178,8 +178,3 @@ i[class] {
 .card-title {
     text-decoration: underline;
 }
-
-.card-body {
-    max-height: 10vh;
-    overflow-x: auto;
-}
