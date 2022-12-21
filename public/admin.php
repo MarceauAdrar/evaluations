@@ -49,6 +49,11 @@ $tps_bootstrap = $req_select_tps_bootstrap->fetchAll(PDO::FETCH_COLUMN);
 
 include_once("./header.php"); ?>
 <div class="container">
+    <div class="row mt-2">
+        <div class="col-8 offset-2">
+            <button role="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAddCourse">Ajouter un cours</button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-8 offset-2">
             
@@ -137,6 +142,53 @@ include_once("./header.php"); ?>
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="modalAddCourse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddCourseTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAddCourseTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/eval/src/requests.php" method="post">
+                    <div class="mb-3">
+                        <label for="form_course_title" class="form-label">Titre du cours:</label>
+                        <input type="text" class="form-control" name="form_course_title" id="form_course_title" placeholder="HTML...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="form_course_synopsis" class="form-label">Synopsis du cours:</label>
+                        <textarea class="form-control" name="form_course_synopsis" id="form_course_synopsis" placeholder="Bref énoncé..." cols="" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="form_course_text" class="form-label">Enoncé du cours:</label>
+                        <textarea class="form-control" name="form_course_text" id="form_course_text" placeholder="Énoncé..." cols="" rows="15"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="form_course_keywords" class="form-label">Mots-clés du cours:</label>
+                        <input type="text" class="form-control" name="form_course_keywords" id="form_course_keywords" placeholder="...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="form_course_link" class="form-label">Lien du cours:</label>
+                        <input type="text" class="form-control" name="form_course_link" id="form_course_link" placeholder="https://...">
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="form_course_active">
+                        <label class="form-check-label" for="form_course_active">
+                            Cours visible ?
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-success" onclick="addCourse();">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php 
 include_once("./js.php"); ?>
 <script>

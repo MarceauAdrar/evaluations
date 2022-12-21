@@ -16,6 +16,39 @@ include_once("./header.php");
             <h1 class="text-center">Bienvenue sur la plateforme pour valider vos acquis</h1>      
         </div>
     </div>
+    
+    <div class="row pt-5 courses">
+        <h3>Les cours</h3>
+
+        <?php 
+        $sql_select_courses = "SELECT course_id, course_title, course_synopsis, course_illustration 
+                                FROM courses
+                                WHERE course_active = 1;";
+        $req_select_courses = $db->prepare($sql_select_courses);
+        $req_select_courses->execute();
+        $courses = $req_select_courses->fetchAll(PDO::FETCH_ASSOC);
+
+        if(!empty($courses)) {
+            foreach($courses as $course) { ?>
+                <div class="col-3 mb-3">
+                    <div class="card" onclick="showCourse(<?=$course["course_id"]?>);">
+                        <img src="/eval/public/imgs/<?=$course["course_illustration"]?>" class="card-img-top" alt="Illustration HTML/CSS/JS">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$course["course_title"]?></h5>
+                            <p class="card-text"><?=$course["course_synopsis"]?></p>
+                        </div>
+                    </div>
+                </div>
+        <?php }} ?>
+
+    </div>
+</div>
+
+<!-- Modale pour afficher un cours -->
+<div class="modal fade" id="modalCourse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCourseTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
 </div>
 
 <script>

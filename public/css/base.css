@@ -169,3 +169,17 @@ i[class] {
     border-radius: 20px;
     padding: 20px;
 }
+
+.card {
+    cursor: pointer;
+    height: 35vh;
+}
+
+.card-title {
+    text-decoration: underline;
+}
+
+.card-body {
+    max-height: 10vh;
+    overflow-x: auto;
+}

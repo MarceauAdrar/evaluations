@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-textarea {
+.editor textarea {
     line-height: 21px;
     overflow-y: hidden;
     padding: 0;
