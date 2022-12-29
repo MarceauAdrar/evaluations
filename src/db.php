@@ -4,8 +4,8 @@ session_start();
 $USER = "phpmyadmin";
 $PASS = "NkBx6";
 
-$USER = "login4017";
-$PASS = "btsinfo";
+$USER = "root";
+$PASS = "Q45tx1020disney05!";
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=adrar", $USER, $PASS);
