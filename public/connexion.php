@@ -53,7 +53,7 @@ include_once("./header.php");
             <div class="row">
                 <h3>Les autres sites accessibles</h3>
                 <div class="col-4">
-                    <div class="card">
+                    <div class="card card-connexion">
                         <a class="text-decoration-none text-reset" href="http://kanban.adrar">
                             <img src="./imgs/under_construction.svg" class="card-img-top" alt="WIP">
                             <div class="card-body">
@@ -64,9 +64,9 @@ include_once("./header.php");
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card">
+                    <div class="card card-connexion">
                         <a class="text-decoration-none text-reset" href="http://evaluations.adrar">
-                            <img src="./imgs/under_construction.svg" class="card-img-top" alt="WIP">
+                            <img src="./imgs/certification.svg" class="card-img-top" alt="Illustration évaluations">
                             <div class="card-body">
                                 <h5 class="card-title">Évaluations</h5>
                                 <p class="card-text">Validez vos acquis avec les évaluations proposées dans les modules</p>
@@ -75,7 +75,7 @@ include_once("./header.php");
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card">
+                    <div class="card card-connexion">
                         <a class="text-decoration-none text-reset" href="http://192.168.190.10:3000">
                             <img src="./imgs/under_construction.svg" class="card-img-top" alt="WIP">
                             <div class="card-body">

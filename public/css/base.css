@@ -1,7 +1,7 @@
 :root {
-    --col_base: #A14CC5;
-    --col_base_foncee: #8f43af;
-    --col_base_tres_foncee: #7a3896;
+    --col_base: #6C63FF;
+    --col_base_foncee: #5950ff;
+    --col_base_tres_foncee: #3b31fc;
 }
 
 html, body {
@@ -172,10 +172,52 @@ i[class] {
 
 .card {
     cursor: pointer;
-    height: 35vh;
 }
 
-.card-body {
+.card-connexion {
+    height: 470px;
+}
+
+.card-img-top {
+    height: 230px;
+}
+
+.card-img-top > svg { 
+    width: 100%;
+    height: 100%;
+}
+
+.courses .card {
+    height: 55vh;
+}
+
+.courses .card-body {
     overflow-y: auto;
-    max-height: 17.2vh;
+    max-height: 31vh;
+}
+
+.admin-titles {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+#modalManageCourses .modal-body {
+    max-height: 89vh;
+    overflow-y: auto;
+}
+
+.admin-manage-imgs {
+    cursor: pointer;
+    height: 150px;
+    width: 200px;
+}
+
+.course-active {
+    opacity: 1;
+}
+.course-inactive {
+    opacity: 0.4;
 }

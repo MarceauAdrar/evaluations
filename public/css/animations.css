@@ -1,4 +1,22 @@
 /*
+ * Animations générales des svgs
+ */
+#floating-cloud {
+    animation: floatAnim 4s linear infinite alternate;
+}
+@keyframes floatAnim {
+    0% {
+        transform: translate(0px, -5px);
+    }
+    50% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(0px, -10px);
+    }
+}
+
+/*
  * Animations du SVG html_css.svg
  */
 #floating-cloud-html {

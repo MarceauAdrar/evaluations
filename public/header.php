@@ -21,8 +21,8 @@
     <?php if(isset($_SESSION["intern"]["intern_id"])) { ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="./imgs/adrar_logo.svg" alt="Logo de l'ADRAR" id="logo_adrar" />
+                <a class="navbar-brand" href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public">
+                    <img src="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/imgs/adrar_logo.svg" alt="Logo de l'ADRAR" id="logo_adrar" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,12 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                            <a class="nav-link active" aria-current="page" href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public">Accueil</a>
                         </li>
                         <?php
                         if($_SESSION["intern"]["intern_username"] == "mrodrigues18") { ?>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./admin.php">Administration</a>
+                            <a class="nav-link active" aria-current="page" href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/admin.php">Administration</a>
                         </li>
                         <?php } ?>
                         <li class="nav-item dropdown">
@@ -50,7 +50,7 @@
                             $req_evaluations->execute(); ?>
                             <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_modules">
                                 <?php foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
-                                    <li><a class="dropdown-item" href="./modules/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
+                                    <li><a class="dropdown-item" href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/modules/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -59,14 +59,14 @@
                                 Quiz
                             </a>
                             <?php 
-                            $sql_evaluations = "SELECT evaluation_dd_name, evaluation_dd_link 
-                                                FROM evaluations_dd
-                                                WHERE evaluation_dd_active = 1;";
-                            $req_evaluations = $db->prepare($sql_evaluations);
-                            $req_evaluations->execute(); ?>
+                            $sql_quiz = "SELECT quiz_dd_name, quiz_dd_link 
+                                                FROM quiz_dd
+                                                WHERE quiz_dd_active = 1;";
+                            $req_quiz = $db->prepare($sql_quiz);
+                            $req_quiz->execute(); ?>
                             <ul class="dropdown-menu" aria-labelledby="navbar_dropdown_quiz">
-                                <?php foreach($req_evaluations->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
-                                    <li><a class="dropdown-item" href="./quiz/<?=$eval["evaluation_dd_link"]?>/"><?=$eval["evaluation_dd_name"]?></a></li>
+                                <?php foreach($req_quiz->fetchAll(PDO::FETCH_ASSOC) as $eval) { ?>
+                                    <li><a class="dropdown-item" href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/quiz?cours=<?=$eval["quiz_dd_link"]?>"><?=$eval["quiz_dd_name"]?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -74,7 +74,7 @@
                     <span class="navbar-text">
                         <?=$_SESSION["intern"]["intern_first_name"] . " " . $_SESSION["intern"]["intern_last_name"]?>
                         &nbsp;
-                        <a href="./logout.php">Se déconnecter</a>
+                        <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/logout.php">Se déconnecter</a>
                     </span>
                 </div>
             </div>

@@ -17,39 +17,74 @@ include_once("./header.php");
         </div>
     </div>
     
-    <div class="row pt-5 courses">
+    <div class="row pt-5">
         <h3>Les cours</h3>
 
-        <?php 
-        $sql_select_courses = "SELECT course_id, course_title, course_synopsis, course_illustration 
-                                FROM courses
-                                WHERE course_active = 1;";
-        $req_select_courses = $db->prepare($sql_select_courses);
-        $req_select_courses->execute();
-        $courses = $req_select_courses->fetchAll(PDO::FETCH_ASSOC);
-
-        if(!empty($courses)) {
-            foreach($courses as $course) { ?>
-                <div class="col-3 mb-3">
-                    <div class="card" onclick="showCourse(<?=$course["course_id"]?>);">
-                        <span class="card-img-top" alt="Illustration HTML/CSS/JS">
-                            <?php include_once("./imgs/".$course["course_illustration"]); ?>
-                        </span>
-                        <div class="card-body">
-                            <h5 class="card-title text-decoration-underline"><?=$course["course_title"]?></h5>
-                            <p class="card-text"><?=$course["course_synopsis"]?></p>
-                        </div>
+        <div class="col-3 mb-3">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=html" class="text-black">
+                <div class="card">
+                    <span class="card-img-top" alt="Illustration HTML">
+                        <?php include_once("./imgs/html.svg"); ?>
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title text-decoration-underline">HTML</h5>
                     </div>
                 </div>
-        <?php }} ?>
+            </a>
+        </div>
 
-    </div>
-</div>
+        <div class="col-3 mb-3">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=css" class="text-black">
+                <div class="card">
+                    <span class="card-img-top" alt="Illustration CSS">
+                        <?php include_once("./imgs/css.svg"); ?>
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title text-decoration-underline">CSS</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
 
-<!-- Modale pour afficher un cours -->
-<div class="modal fade" id="modalCourse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCourseTitle" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content"></div>
+        <div class="col-3 mb-3">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=frameworks" class="text-black">
+                <div class="card">
+                    <span class="card-img-top" alt="Illustration Frameworks">
+                        <?php include_once("./imgs/frameworks.svg"); ?>
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title text-decoration-underline">Frameworks</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-3 mb-3">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=js" class="text-black">
+                <div class="card">
+                    <span class="card-img-top" alt="Illustration JS">
+                        <?php include_once("./imgs/js.svg"); ?>
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title text-decoration-underline">JS</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-3 mb-3">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=php" class="text-black">
+                <div class="card">
+                    <span class="card-img-top" alt="Illustration php">
+                        <?php include_once("./imgs/php.svg"); ?>
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title text-decoration-underline">PHP</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
     </div>
 </div>
 

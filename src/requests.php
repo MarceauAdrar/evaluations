@@ -105,7 +105,7 @@ if(!empty($_POST["submit_evaluation"])) {
     die("ko");
 }
 
-if($_POST["load_informations_tp"]) {
+if(!empty($_POST["load_informations_tp"])) {
     $sql_select_informations_tp = "SELECT evaluation_title, evaluation_synopsis
                                     FROM evaluations 
                                     WHERE evaluation_id=:evaluation_id;";
@@ -120,7 +120,7 @@ if($_POST["load_informations_tp"]) {
     )));
 }
 
-if($_POST["valid_intern_correction"]) {
+if(!empty($_POST["valid_intern_correction"])) {
     $sql_update_correction = "UPDATE interns_evaluations 
                                 SET intern_evaluation_correction = 1, 
                                 intern_evaluation_errors_found=:errors_found
@@ -133,6 +133,62 @@ if($_POST["valid_intern_correction"]) {
     if($req_update_correction->execute()) {
         die("ok");
     }
+    die("ko");
+}
+
+if(!empty($_POST["show_modal_manage_courses"])) {
+    $sql_select_courses = "SELECT course_id, course_title, course_category, course_illustration, course_active
+                            FROM courses
+                            ORDER BY course_title;";
+    $req_select_courses = $db->prepare($sql_select_courses);
+    $req_select_courses->execute();
+    $courses = $req_select_courses->fetchAll(PDO::FETCH_ASSOC);
+
+    ob_start(); ?>
+    <div class="container-fluid">
+        <div class="row">
+            <?php if(!empty($courses)) {
+                foreach($courses as $course) { ?>
+                    <div class="col-3" onclick="updateStatusCourse(<?=$course['course_id']?>);">
+                        <span class="admin-manage-imgs" id="course_<?=$course['course_id']?>">
+                            <span class="<?=(!empty($course['course_active']) ? "course-active" : "course-inactive")?>"><?php include("../public/imgs/" . strtolower($course['course_category']) . ".svg") ?></span>
+                            <p><strong>[<?=strtoupper($course['course_category'])?>]</strong>&nbsp;<?=$course['course_title']?></p>
+                        </span>
+                    </div>
+            <?php }} else { ?>
+                <div class="col-6 offset-3">
+                    <?php include_once("../public/imgs/under_construction.svg") ?>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+    <?php 
+    die(ob_get_clean());
+}
+
+if(!empty($_POST["update_status_course"])) {
+    $sql_update_course = "UPDATE courses 
+                        SET course_active=:course_active 
+                        WHERE course_id=:course_id;";
+    $req_update_course = $db->prepare($sql_update_course);
+    $req_update_course->bindParam(":course_active", $_POST["course_active"]);
+    $req_update_course->bindParam(":course_id", $_POST["course_id"]);
+    if($req_update_course->execute()) {
+        die("ok");
+    }
+    die("ko");
+}
+
+if(!empty($_POST["fetch_quiz_data"])) {
+    $sql_select_quiz = "SELECT quiz_id, quiz_question, quiz_proposition_1, quiz_proposition_2, quiz_proposition_3, quiz_proposition_4, quiz_type, id_quiz_list 
+                        FROM quiz 
+                        WHERE id_quiz_list=:id_quiz_list;";
+    $req_select_quiz = $db->prepare($sql_select_quiz);
+    $req_select_quiz->bindParam(":id_quiz_list", $_POST['quiz_id']);
+    $req_select_quiz->execute();
+    $quiz = $req_select_quiz->fetchAll(PDO::FETCH_ASSOC);
+
+    die("ok");
     die("ko");
 }
 ?> 
