@@ -67,7 +67,7 @@ include_once("../header.php"); ?>
 
     function fetchQuizData(quiz_id) {
         $.ajax({
-            url: "../src/requests.php", 
+            url: "../../src/requests.php", 
             method: "post",
             data: {
                 fetch_quiz_data: 1,

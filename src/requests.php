@@ -188,6 +188,7 @@ if(!empty($_POST["fetch_quiz_data"])) {
     $req_select_quiz->execute();
     $quiz = $req_select_quiz->fetchAll(PDO::FETCH_ASSOC);
 
+    var_dump("TODO:",$quiz);die;
     die("ok");
     die("ko");
 }
