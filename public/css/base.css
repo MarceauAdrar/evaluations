@@ -221,3 +221,8 @@ i[class] {
 .course-inactive {
     opacity: 0.4;
 }
+
+#error {
+    display: none;
+    color: red;
+}

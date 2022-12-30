@@ -10,6 +10,11 @@
         </div>
         <div class="col-6" id="box_code">
             <div class="editor">
+                <span class="fake-apple-buttons">
+                    <span class="fake-btn fake-close"></span>
+                    <span class="fake-btn fake-resize"></span>
+                    <span class="fake-btn fake-minimize"></span>
+                </span>
                 <span class="file-title"><i>index.html</i></span>
                 <div class="line-numbers">
                     <span></span>

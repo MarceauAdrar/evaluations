@@ -60,3 +60,52 @@ iframe {
     background-color: #282a3a;
     color: wheat;
 }
+
+.fake-apple-buttons {    
+    position: absolute;
+    top: 19.5%;
+    left: 2%;
+    display: inline-flex;
+    gap: 10px;
+}
+.fake-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+}
+.fake-close:hover::before {
+    content: 'x';
+    color: black;
+    position: absolute;
+    top: -63%;
+    left: 2%;
+    font-size: 12px;
+    font-weight: 600;
+}
+.fake-close {
+    background-color: #FF514F;
+}
+.fake-resize:hover::before {
+    content: '[]';
+    color: black;
+    position: absolute;
+    top: -58%;
+    left: 42%;
+    font-size: 6px;
+    font-weight: 600;
+}
+.fake-resize {
+    background-color: #FFBC00;
+}
+.fake-minimize:hover::before {
+    content: '_';
+    color: black;
+    position: absolute;
+    top: -127%;
+    left: 80%;
+    font-size: 16px;
+    font-weight: 600;
+}
+.fake-minimize {
+    background-color: #00CD1F;
+}

@@ -51,12 +51,6 @@ include_once("../header.php"); ?>
 <div class="modal modal-lg fade" id="modalDisplayQuiz" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDisplayQuizTitle" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalDisplayQuizTitle">Quiz</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            </div>
         </div>
     </div>
 </div>
@@ -65,18 +59,50 @@ include_once("../header.php"); ?>
 <script>
     sessionStorage.setItem("previous_uri", "<?=$_SERVER["REQUEST_URI"]?>");
 
-    function fetchQuizData(quiz_id) {
+    function fetchQuizData(quiz_list_id, offset = 0) {
         $.ajax({
             url: "../../src/requests.php", 
             method: "post",
             data: {
                 fetch_quiz_data: 1,
-                quiz_id: quiz_id
+                quiz_list_id: quiz_list_id, 
+                offset: offset
             }, 
             success: function(r) {
-                $("#modalDisplayQuiz .modal-content .modal-body").html(r);
+                $("#modalDisplayQuiz .modal-content").html(r);
             }
         });
+    }
+
+    function sendQuiz(quiz_id, id_quiz_list, offset) {
+        var answers = "";
+        $(".quiz_propositions").each(function() {
+            if($(this).is(":checked")) {
+                answers += $(this).data("quiz-id") + ";";
+            }
+        });
+
+        if(answers === "") {
+            $("#error").show();
+            return false;
+        } else {
+            $("#error").hide();
+            $.ajax({
+                url: "../../src/requests.php", 
+                method: "post",
+                data: {
+                    send_quiz: 1,
+                    quiz_id: quiz_id, 
+                    answers: answers
+                }, 
+                success: function(r) {
+                    $("#modalDisplayQuiz .modal-content").html(r);
+                }
+            });
+            if(offset != 0) {
+                fetchQuizData(id_quiz_list, offset);
+            }
+        }
     }
 </script>
 <?php 
