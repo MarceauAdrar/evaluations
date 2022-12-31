@@ -13,7 +13,7 @@ if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
     if(password_verify($_POST["intern_password"], $intern["intern_password"])) {
         $_SESSION["form_connexion"]["errors"] = 0;
         $_SESSION["intern"] = $intern;
-        header("Location: ../index.php");
+        header("Location: /evaluations/public/index.php");
     } else {
         $_SESSION["form_connexion"]["errors"] = 1;
         header("Location: ../public/connexion.php");
