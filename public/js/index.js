@@ -7,7 +7,7 @@ function showInformationsModal() {
 
 function showCourse(course_id) {
     $.ajax({
-        url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
+        url: "http://" + SERVER_ADDR + "/evaluations/src/requests.php", 
         method: "post",
         dataType: "json",
         data: {
@@ -25,7 +25,7 @@ function showCourse(course_id) {
 
 function addCourse() {
     $.ajax({
-        url: "http://" + SERVER_ADDR + "/eval/src/requests.php", 
+        url: "http://" + SERVER_ADDR + "/evaluations/src/requests.php", 
         method: "post",
         data: {
             add_course: 1, 
