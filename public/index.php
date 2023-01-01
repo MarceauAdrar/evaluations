@@ -73,6 +73,19 @@ include_once("./header.php");
         </div>
 
         <div class="col-3 mb-3">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=maquettage" class="text-black">
+                <div class="card">
+                    <span class="card-img-top" alt="Illustration maquettage">
+                        <?php include_once("./imgs/user_flow.svg"); ?>
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title text-decoration-underline">Maquettage</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-3 mb-3">
             <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=php" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration php">
