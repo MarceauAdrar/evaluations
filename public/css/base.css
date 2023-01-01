@@ -209,10 +209,17 @@ i[class] {
     overflow-y: auto;
 }
 
+.admin-manage-imgs svg {
+    height: 130px;
+    width: 162px;
+}
 .admin-manage-imgs {
     cursor: pointer;
     height: 150px;
     width: 200px;
+}
+.admin-manage-text {
+    word-wrap: break-word;
 }
 
 .course-active {

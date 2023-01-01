@@ -152,8 +152,8 @@ if(!empty($_POST["show_modal_manage_courses"])) {
                     <div class="col-3" onclick="updateStatusCourse(<?=$course['course_id']?>);">
                         <span class="admin-manage-imgs" id="course_<?=$course['course_id']?>">
                             <span class="<?=(!empty($course['course_active']) ? "course-active" : "course-inactive")?>"><?php include("../public/imgs/" . strtolower($course['course_category']) . ".svg") ?></span>
-                            <p><strong>[<?=strtoupper($course['course_category'])?>]</strong>&nbsp;<?=$course['course_title']?></p>
                         </span>
+                        <p class="admin-manage-text"><strong>[<?=strtoupper($course['course_category'])?>]</strong>&nbsp;<?=$course['course_title']?></p>
                     </div>
             <?php }} else { ?>
                 <div class="col-6 offset-3">
