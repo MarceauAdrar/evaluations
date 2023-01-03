@@ -13,7 +13,7 @@ if(!empty($_POST["intern_connexion"]) && $_POST["intern_connexion"] == 1) {
     if(password_verify($_POST["intern_password"], $intern["intern_password"])) {
         $_SESSION["form_connexion"]["errors"] = 0;
         $_SESSION["intern"] = $intern;
-        header("Location: /evaluations/public/index.php");
+        header("Location: /public/index.php");
     } else {
         $_SESSION["form_connexion"]["errors"] = 1;
         header("Location: ../public/connexion.php");
@@ -46,7 +46,7 @@ if(!empty($_POST["display_prompt_join_modal"])) {
                     <?= $goals ?>
                 </div>
                 <div class="col-6">
-                    <img class="svgs-sm" src="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/imgs/join.svg" alt="Illustration pour l'intégration à l'évaluation"/>
+                    <img class="svgs-sm" src="http://<?=$_SERVER["SERVER_NAME"]?>/public/imgs/join.svg" alt="Illustration pour l'intégration à l'évaluation"/>
                 </div>
             </div>
         </div>

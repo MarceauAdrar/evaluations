@@ -60,8 +60,8 @@ include_once("./header.php"); ?>
         loadButtons();
         chargerCorrection();
         function chargerCorrection() {
-            const link = "http://" + SERVER_ADDR + "/evaluations/public/stagiaires/" + "<?=$intern_username?>" + "/" + sessionStorage.getItem("module") + "/tp" + sessionStorage.getItem("tp") + ".html";
-            const linkCorrection = "http://" + SERVER_ADDR + "/eval/modules/" + sessionStorage.getItem("module") + "/corrections/tp" + sessionStorage.getItem("tp") + ".html";
+            const link = "http://" + SERVER_ADDR + "/public/stagiaires/" + "<?=$intern_username?>" + "/" + sessionStorage.getItem("module") + "/tp" + sessionStorage.getItem("tp") + ".html";
+            const linkCorrection = "http://" + SERVER_ADDR + "/modules/" + sessionStorage.getItem("module") + "/corrections/tp" + sessionStorage.getItem("tp") + ".html";
 
             var html_editor_1 = getHtmlContent(link);
             $("#code_editor_readonly").val(html_editor_1);

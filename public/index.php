@@ -21,7 +21,7 @@ include_once("./header.php");
         <h3>Les cours</h3>
 
         <div class="col-3 mb-3">
-            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=html" class="text-black">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/public/courses.php?cours=html" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration HTML">
                         <?php include_once("./imgs/html.svg"); ?>
@@ -34,7 +34,7 @@ include_once("./header.php");
         </div>
 
         <div class="col-3 mb-3">
-            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=css" class="text-black">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/public/courses.php?cours=css" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration CSS">
                         <?php include_once("./imgs/css.svg"); ?>
@@ -47,7 +47,7 @@ include_once("./header.php");
         </div>
 
         <div class="col-3 mb-3">
-            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=frameworks" class="text-black">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/public/courses.php?cours=frameworks" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration Frameworks">
                         <?php include_once("./imgs/frameworks.svg"); ?>
@@ -60,7 +60,7 @@ include_once("./header.php");
         </div>
 
         <div class="col-3 mb-3">
-            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=js" class="text-black">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/public/courses.php?cours=js" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration JS">
                         <?php include_once("./imgs/js.svg"); ?>
@@ -73,7 +73,7 @@ include_once("./header.php");
         </div>
 
         <div class="col-3 mb-3">
-            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=maquettage" class="text-black">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/public/courses.php?cours=maquettage" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration maquettage">
                         <?php include_once("./imgs/user_flow.svg"); ?>
@@ -86,7 +86,7 @@ include_once("./header.php");
         </div>
 
         <div class="col-3 mb-3">
-            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/evaluations/public/courses.php?cours=php" class="text-black">
+            <a href="http://<?=$_SERVER["SERVER_NAME"]?>/public/courses.php?cours=php" class="text-black">
                 <div class="card">
                     <span class="card-img-top" alt="Illustration php">
                         <?php include_once("./imgs/php.svg"); ?>
