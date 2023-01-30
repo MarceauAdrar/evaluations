@@ -1,0 +1,111 @@
+.editor {
+    display: inline-flex;
+    font-family: monospace;
+    line-height: 21px;
+    background: #282a3a;
+    border-radius: 10px;
+    padding: 20px 10px;
+    width: 100%;
+    position: relative;
+}
+
+.editor textarea {
+    line-height: 21px;
+    overflow-y: hidden;
+    padding: 0;
+    border: 0;
+    background: #282a3a;
+    color: #FFF;
+    min-width: 41vw;
+    outline: none;
+    resize: none;
+}
+
+.line-numbers, .line-numbers-correction {
+    width: 20px;
+    text-align: right;
+}
+
+.line-numbers span {
+    counter-increment: linenumber;
+}
+
+.line-numbers span::before {
+    content: counter(linenumber);
+    display: block;
+    color: #506882;
+}
+
+.line-numbers-correction span {
+    counter-increment: linenumbercorrection;
+}
+
+.line-numbers-correction span::before {
+    content: counter(linenumbercorrection);
+    display: block;
+    color: #506882;
+}
+
+iframe {
+    border: 1px solid #282a3a;
+    border-radius: 10px;
+    width: 100%;
+    height: calc(100vh - 232px);
+}
+
+.file-title {
+    position: absolute;
+    top: 0.2%;
+    right: 2%;
+    background-color: #282a3a;
+    color: wheat;
+}
+
+.fake-apple-buttons {    
+    position: absolute;
+    top: 0.8%;
+    left: 2%;
+    display: inline-flex;
+    gap: 10px;
+}
+.fake-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+}
+.fake-close:hover::before {
+    content: 'x';
+    color: black;
+    position: absolute;
+    top: -63%;
+    left: 2%;
+    font-size: 12px;
+    font-weight: 600;
+}
+.fake-close {
+    background-color: #FF514F;
+}
+.fake-resize:hover::before {
+    content: '[]';
+    color: black;
+    position: absolute;
+    top: -58%;
+    left: 42%;
+    font-size: 6px;
+    font-weight: 600;
+}
+.fake-resize {
+    background-color: #FFBC00;
+}
+.fake-minimize:hover::before {
+    content: '_';
+    color: black;
+    position: absolute;
+    top: -127%;
+    left: 80%;
+    font-size: 16px;
+    font-weight: 600;
+}
+.fake-minimize {
+    background-color: #00CD1F;
+}

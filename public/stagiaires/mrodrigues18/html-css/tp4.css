@@ -1,0 +1,67 @@
+<<<<<<< HEAD
+@media screen and (orientation: portrait) {
+    body {
+        background-color: red;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        background-color: blue;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    p {
+        color: green;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    p {
+        color: orange;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    p {
+        color: yellow;
+        font-size: 18px;
+    }
+}
+=======
+@media screen and (orientation: portrait) {
+    body {
+        background-color: red;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        background-color: blue;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    p {
+        color: green;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    p {
+        color: orange;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    p {
+        color: yellow;
+        font-size: 18px;
+    }
+}
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8

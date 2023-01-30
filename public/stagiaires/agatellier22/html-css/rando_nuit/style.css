@@ -1,0 +1,148 @@
+<<<<<<< HEAD
+body{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#principale1{
+    height: 3700px;
+    background: url("imgs/fond1mobile.png");
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    top: -1.46%;
+}
+
+#rn{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    width: 61px;
+    height: 68px;
+    left: 61px;
+    top: 18px;
+    right: 283px;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 106px;
+    line-height: 190%;
+    color: #FFFFFF;
+}
+
+#rn::after{
+    content: ".";
+    color: #00C9E0;
+}
+
+#h1{
+
+    position: absolute;
+    left: 1%;
+    right: 4.18%;
+    top: 250px;
+    font-family: 'Playfair Display';
+    font-weight: 700;
+    font-size: 300px;
+    line-height: 400px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+
+#h2{
+    position: absolute;
+    left: 2.4%;
+    right: -1.33%;
+    top: 6.19%;
+    bottom: 93.24%;
+    font-family: 'ABeeZee';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+
+#principale2{
+    background: #0B2E4B;
+    height: 1403px;
+=======
+body{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#principale1{
+    height: 3700px;
+    background: url("imgs/fond1mobile.png");
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    top: -1.46%;
+}
+
+#rn{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    width: 61px;
+    height: 68px;
+    left: 61px;
+    top: 18px;
+    right: 283px;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 106px;
+    line-height: 190%;
+    color: #FFFFFF;
+}
+
+#rn::after{
+    content: ".";
+    color: #00C9E0;
+}
+
+#h1{
+
+    position: absolute;
+    left: 1%;
+    right: 4.18%;
+    top: 250px;
+    font-family: 'Playfair Display';
+    font-weight: 700;
+    font-size: 300px;
+    line-height: 400px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+
+#h2{
+    position: absolute;
+    left: 2.4%;
+    right: -1.33%;
+    top: 6.19%;
+    bottom: 93.24%;
+    font-family: 'ABeeZee';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+
+#principale2{
+    background: #0B2E4B;
+    height: 1403px;
+>>>>>>> 47c78300d7b0b75782acd2e3a274134947b213e8
+}

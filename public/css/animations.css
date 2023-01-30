@@ -1,0 +1,53 @@
+/*
+ * Animations générales des svgs
+ */
+#floating-cloud {
+    animation: floatAnim 4s linear infinite alternate;
+}
+@keyframes floatAnim {
+    0% {
+        transform: translate(0px, -5px);
+    }
+    50% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(0px, -10px);
+    }
+}
+
+/*
+ * Animations du SVG html_css.svg
+ */
+#floating-cloud-html {
+    animation: floatAnimHtml 3s linear infinite alternate;
+}
+#floating-cloud-css {
+    animation: floatAnimCss 3s linear infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes floatAnimHtml {
+    0% {
+        transform: translate(-253.5px, -176px);
+    }
+    50% {
+        transform: translate(-253.5px, -180px);
+    }
+    100% {
+        transform: translate(-253.5px, -186px);
+    }
+}
+@keyframes floatAnimCss {
+    0% {
+        transform: translate(-253.5px, -186px);
+    }
+    50% {
+        transform: translate(-253.5px, -180px);
+    }
+    100% {
+        transform: translate(-253.5px, -176px);
+    }
+}
+
+

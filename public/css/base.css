@@ -1,0 +1,235 @@
+:root {
+    --col_base: #6C63FF;
+    --col_base_foncee: #5950ff;
+    --col_base_tres_foncee: #3b31fc;
+}
+
+html, body {
+    height: calc(100% - 25px);
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+} 
+
+footer {
+    height: 50px;
+}
+
+footer p {
+    margin: 0;
+    padding-top: 15px;
+}
+
+nav a:hover {
+    font-weight: 500;
+}
+
+#logo_adrar {
+    width: 100px;
+    height: 80px;
+}
+
+.svgs-full {
+    width: 300px;
+    height: 250px;
+}
+
+.svgs-sm {
+    width: 200px;
+    height: 100px;
+}
+
+@keyframes fadein {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 74%;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        left: 74%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+button.btn:active, a.btn:focus {
+    background-color: var(--col_base_tres_foncee);
+}
+
+.wave-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: var(--col_base);
+    vertical-align: middle;
+    z-index: 1;
+    -webkit-transition: .3s ease-out;
+    transition: .3s
+}
+
+.help-floating-btn, .help-floating-btn:hover, .help-floating-btn:active {
+    position: fixed;
+    top: 88%;
+    left: 94%;
+    border-radius: 15px;
+    font-size: 22px;
+    background-color: var(--col_base);
+}
+
+.help-floating-btn i {
+    padding-top: 10%;
+}
+
+.btn-floating {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+}
+
+.fade-in {
+    animation: 0.3s ease-in 0s forwards running fadein;
+}
+.fade-out {
+    animation: 0.3s ease-out 0s forwards running fadeout;
+}
+
+.help-resource {
+    position: fixed;
+    padding: 10px;
+    bottom: 13%;
+    left: 100%;
+    width: 23vw;
+    z-index: 100;
+    border: 1px solid lightslategrey;
+    border-radius: 15px;
+    min-height: 10vh;
+    background-color: #FFFFFF;
+}
+
+.circle {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.completed {
+    background-color: #198754;
+}
+
+.awaiting {
+    background-color: #f7c41bd4;
+}
+
+.missing {
+    background-color: #dc3545;
+}
+
+tr td {
+    vertical-align: middle;
+}
+
+i[class] {
+    color: #FFFFFF;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--col_base);
+}
+
+.hrs {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modules {  
+    border: 1px solid #d3d3d3;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card-connexion {
+    height: 470px;
+}
+
+.card-img-top {
+    height: 230px;
+}
+
+.card-img-top > svg { 
+    width: 100%;
+    height: 100%;
+}
+
+.courses .card {
+    height: 55vh;
+}
+
+.courses .card-body {
+    overflow-y: auto;
+    max-height: 31vh;
+}
+
+.admin-titles {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+#modalManageCourses .modal-body {
+    max-height: 89vh;
+    overflow-y: auto;
+}
+
+.admin-manage-imgs svg {
+    height: 130px;
+    width: 162px;
+}
+.admin-manage-imgs {
+    cursor: pointer;
+    height: 150px;
+    width: 200px;
+}
+.admin-manage-text {
+    word-wrap: break-word;
+}
+
+.course-active {
+    opacity: 1;
+}
+.course-inactive {
+    opacity: 0.4;
+}
+
+#error {
+    display: none;
+    color: red;
+}
